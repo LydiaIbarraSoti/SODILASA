@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SODILASA - Refaccionaria especializada en camiones diésel. Venta de refacciones, taller mecánico y rescate 24/7 en Gómez Palacio y Piedras Negras.">
+    <meta name="keywords" content="refacciones, camiones diesel, taller mecánico, rescate carretera, Gómez Palacio, Piedras Negras">
+    <meta name="author" content="SODILASA">
+    
+    <title>SODILASA - Soluciones Diésel Laguna | Refacciones y Taller Mecánico</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../BACKEND/assets/images/logo_sodilasa.png">    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #c24242 0%, #000000cc 100%);
+            
+            -webkit-text-fill-color: transparent;
+        }
+        @import "tailwindcss";
+    </style>
+    
+    <!-- Estilos Personalizados -->
+    <link rel="stylesheet" href="../BACKEND/assets/css/styles.css">
+</head>
+<body>
+
+   <?php include __DIR__.'/menu.php'; ?>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative bg-gradient-to-br from-neutral-900 via-zinc-800 to-black pt-32 pb-24 overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-10 w-96 h-96 bg-red-600/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-red-800/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-center lg:text-left animate-on-scroll">
+                    <div class="badge-red px-4 py-2 rounded-full text-sm font-bold backdrop-blur-sm inline-block">
+                        <i class="fas fa-truck mr-2"></i>REFACCIONARIA PROFESIONAL
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-black text-white leading-tight">
+                        Soluciones <span class="text-red-600">Diésel</span><br>
+                        para tu <span class="text-red-600">Camión</span>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-300">
+                        Refacciones de calidad, taller mecánico especializado y servicio de rescate en carretera. 
+                        <span class="text-red-500 font-semibold">Más de 20 años de experiencia.</span>
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#productos" class="btn-red px-8 py-4 text-lg font-bold">
+                            Ver Productos
+                        </a>
+                        <a href="#cotizacion" class="btn-outline-red px-8 py-4 text-lg font-bold">
+                            Cotizar Ahora
+                        </a>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
+                        <div class="text-center">
+                            <p class="text-3xl font-black text-red-500">20+</p>
+                            <p class="text-sm text-gray-400">Años</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-3xl font-black text-red-500">24/7</p>
+                            <p class="text-sm text-gray-400">Rescates</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-3xl font-black text-red-500">2</p>
+                            <p class="text-sm text-gray-400">Sucursales</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:block animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800" 
+                         alt="Camión Diésel" 
+                         class="rounded-3xl shadow-2xl border-4 border-red-600/20">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Section -->
+    <section id="productos" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="badge-red px-6 py-2 rounded-full text-sm font-bold mb-4 inline-block">
+                    <i class="fas fa-box-open mr-2"></i>NUESTROS PRODUCTOS
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-display font-black text-gray-900 mb-4">
+                    Refacciones de <span class="text-red-600">Calidad</span>
+                </h2>
+                <div class="decorative-line w-24 mx-auto"></div>
+            </div>
+            
+            <!-- Categorías -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <button onclick="filterCategory('motor')" class="category-btn bg-white border-2 border-gray-200 hover:border-red-600 rounded-xl p-6 text-center transition-all card-hover">
+                    <i class="fas fa-engine text-4xl text-red-600 mb-4"></i>
+                    <h3 class="font-bold text-gray-900">Motor</h3>
+                </button>
+                
+                <button onclick="filterCategory('transmision')" class="category-btn bg-white border-2 border-gray-200 hover:border-red-600 rounded-xl p-6 text-center transition-all card-hover">
+                    <i class="fas fa-gears text-4xl text-red-600 mb-4"></i>
+                    <h3 class="font-bold text-gray-900">Transmisión</h3>
+                </button>
+                
+                <button onclick="filterCategory('suspension')" class="category-btn bg-white border-2 border-gray-200 hover:border-red-600 rounded-xl p-6 text-center transition-all card-hover">
+                    <i class="fas fa-car-side text-4xl text-red-600 mb-4"></i>
+                    <h3 class="font-bold text-gray-900">Suspensión</h3>
+                </button>
+                
+                <button onclick="filterCategory('frenos')" class="category-btn bg-white border-2 border-gray-200 hover:border-red-600 rounded-xl p-6 text-center transition-all card-hover">
+                    <i class="fas fa-circle-stop text-4xl text-red-600 mb-4"></i>
+                    <h3 class="font-bold text-gray-900">Frenos</h3>
+                </button>
+            </div>
+            
+            <!-- Lista de productos -->
+            <div id="productList" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Los productos se generarán dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    
+     <!-- Servicios -->
+    <section id="servicios" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-display font-black text-gray-900 mb-4">
+                    Nuestros <span class="text-red-600">Servicios</span>
+                </h2>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Servicio 1 -->
+                <div class="bg-white rounded-3xl p-8 shadow-lg card-hover border border-gray-200">
+                    <div class="w-20 h-20 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-store text-4xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">Venta de Refacciones</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        Amplio catálogo de refacciones originales y aftermarket para camiones diésel de todas las marcas.
+                    </p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Motores y componentes</li>
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Sistema de transmisión</li>
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Suspensión y dirección</li>
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Sistema eléctrico</li>
+                    </ul>
+                </div>
+                
+                <!-- Servicio 2 -->
+                <div class="bg-white rounded-3xl p-8 shadow-lg card-hover border border-gray-200">
+                    <div class="w-20 h-20 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-wrench text-4xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">Taller Mecánico</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        Servicio especializado en mantenimiento y reparación de camiones diésel. Sucursal Gómez Palacio.
+                    </p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Diagnóstico computarizado</li>
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Reparación de motor</li>
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Mantenimiento preventivo</li>
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Reparaciones eléctricas</li>
+                    </ul>
+                </div>
+                
+                <!-- Servicio 3 -->
+                <div class="bg-white rounded-3xl p-8 shadow-lg card-hover border border-gray-200">
+                    <div class="w-20 h-20 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-truck-medical text-4xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">Rescate en Carretera</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        Servicio de grúa y rescate 24/7 para camiones varados en carretera. Respuesta inmediata.
+                    </p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Servicio 24/7</li>
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Grúas especializadas</li>
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Cobertura regional</li>
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Respuesta rápida</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sucursales -->
+    <section id="sucursales" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-display font-black text-gray-900 mb-4">
+                    Nuestras <span class="text-red-600">Sucursales</span>
+                </h2>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Sucursal Gómez Palacio -->
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 shadow-xl border border-gray-200">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-2xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Gómez Palacio</h3>
+                            <p class="text-red-600 font-semibold">Sucursal Principal - Taller y Refacciones</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4 text-gray-700">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-location-dot text-red-600 mt-1"></i>
+                            <p>Dirección: [Dirección completa Gómez Palacio]</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-phone text-red-600 mt-1"></i>
+                            <p>Tel: <a href="tel:+52123456789" class="hover:text-red-600">(871) 123-4567</a></p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-clock text-red-600 mt-1"></i>
+                            <p>Lun - Vie: 8:00 AM - 7:00 PM<br>Sáb: 8:00 AM - 3:00 PM</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-tools text-red-600 mt-1"></i>
+                            <p class="font-semibold">Servicios: Refacciones + Taller + Rescate 24/7</p>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-red w-full mt-6 py-3 rounded-full font-bold">
+                        <i class="fas fa-map mr-2"></i>Ver en Mapa
+                    </button>
+                </div>
+                
+                <!-- Sucursal Piedras Negras -->
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 shadow-xl border border-gray-200">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-2xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Piedras Negras</h3>
+                            <p class="text-red-600 font-semibold">Sucursal - Venta de Refacciones</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4 text-gray-700">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-location-dot text-red-600 mt-1"></i>
+                            <p>Dirección: [Dirección completa Piedras Negras]</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-phone text-red-600 mt-1"></i>
+                            <p>Tel: <a href="tel:+52987654321" class="hover:text-red-600">(878) 987-6543</a></p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-clock text-red-600 mt-1"></i>
+                            <p>Lun - Vie: 8:00 AM - 7:00 PM<br>Sáb: 8:00 AM - 3:00 PM</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-store text-red-600 mt-1"></i>
+                            <p class="font-semibold">Servicios: Venta de Refacciones</p>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-red w-full mt-6 py-3 rounded-full font-bold">
+                        <i class="fas fa-map mr-2"></i>Ver en Mapa
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Formulario de Cotización -->
+    <section id="cotizacion" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-12">
+                <div class="inline-block badge-red px-6 py-2 rounded-full text-sm font-bold mb-4">
+                    <i class="fas fa-calculator mr-2"></i>COTIZACIÓN
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-display font-black text-gray-900 mb-4">
+                    Solicita tu <span class="text-red-600">Cotización</span>
+                </h2>
+            </div>
+            
+            <div class="bg-white rounded-3xl p-8 shadow-2xl border border-gray-200">
+                <form id="cotizacionForm" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Nombre Completo *</label>
+                            <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Teléfono *</label>
+                            <input type="tel" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Correo Electrónico *</label>
+                        <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Sucursal de Preferencia</label>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                            <option>Gómez Palacio</option>
+                            <option>Piedras Negras</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Refacciones que Necesitas *</label>
+                        <textarea required rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Describe las refacciones que necesitas..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-red w-full py-4 rounded-full text-lg font-bold">
+                        <i class="fas fa-paper-plane mr-2"></i>Enviar Cotización
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+      <!-- Footer -->
+    <?php include __DIR__.'/footer.php'; ?>
+    
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/528711234567" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-all z-50 hover:scale-110">
+        <i class="fab fa-whatsapp text-3xl text-white"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../BACKEND/assets/js/productos.js"></script>
+    
+</body>
+</html>

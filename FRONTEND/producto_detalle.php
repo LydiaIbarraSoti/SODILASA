@@ -47,30 +47,7 @@
 <body class="bg-gray-50">
 
     <!-- Navbar Premium -->
-    <nav class="bg-gradient-to-r from-neutral-900 via-zinc-800 to-black text-white py-4 shadow-2xl fixed w-full top-0 z-50 border-b border-red-600/30">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-4">
-                    <img src="assets/images/logo_sodilasa.png" alt="SODILASA Logo" class="h-16 w-16 object-contain">
-                    <div>
-                        <h1 class="text-2xl font-display font-black text-white">SODILASA</h1>
-                        <p class="text-xs text-gray-400">Soluciones Diésel Laguna</p>
-                    </div>
-                </div>
-                
-                <div class="hidden lg:flex items-center space-x-6">
-                    <a href="index.html" class="hover:text-red-500 transition font-medium">Inicio</a>
-                    <a href="index.html#productos" class="hover:text-red-500 transition font-medium">Productos</a>
-                    <a href="index.html#servicios" class="hover:text-red-500 transition font-medium">Servicios</a>
-                    <a href="index.html#sucursales" class="hover:text-red-500 transition font-medium">Sucursales</a>
-                    <a href="contacto.html" class="hover:text-red-500 transition font-medium">Contacto</a>
-                    <a href="index.html#cotizacion" class="btn-red px-6 py-2 rounded-full text-sm">
-                        <i class="fas fa-calculator mr-2"></i>Cotizar
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <?php include __DIR__.'/menu.php'; ?>
 
     <!-- Breadcrumb -->
     <section class="pt-32 pb-6 bg-white">
@@ -374,48 +351,15 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-br from-neutral-900 via-zinc-900 to-black text-white py-16">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-12 mb-12">
-                <div>
-                    <img src="assets/images/logo_sodilasa.png" alt="SODILASA" class="h-20 w-20 mb-4">
-                    <h3 class="text-2xl font-display font-bold mb-2">SODILASA</h3>
-                    <p class="text-gray-400">Soluciones Diésel Laguna</p>
-                </div>
-                
-                <div>
-                    <h4 class="text-xl font-bold mb-4 text-red-500">Contacto</h4>
-                    <div class="space-y-3 text-gray-400">
-                        <p><i class="fas fa-phone text-red-500 mr-2"></i>(871) 123-4567</p>
-                        <p><i class="fas fa-envelope text-red-500 mr-2"></i>info@sodilasa.com</p>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="text-xl font-bold mb-4 text-red-500">Síguenos</h4>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="border-t border-white/10 pt-8 text-center text-gray-500">
-                <p>&copy; 2025 SODILASA. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
+    <?php include __DIR__.'/footer.php'; ?>
 
     <!-- WhatsApp Float Button -->
     <a href="https://wa.me/528711234567" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-all z-50 hover:scale-110">
         <i class="fab fa-whatsapp text-3xl text-white"></i>
     </a>
 
-    <script src="assets/js/productos.js"></script>
+    <script src="../BACKEND/assets/js/productos.js"></script>
+
     <script>
         // Obtener ID del producto de la URL
         const urlParams = new URLSearchParams(window.location.search);
@@ -504,6 +448,7 @@
         });
         
         function cargarProductosRelacionados() {
+            cosole.log(1);
             const relacionados = productos
                 .filter(p => p.categoria === producto.categoria && p.id !== producto.id)
                 .slice(0, 4);

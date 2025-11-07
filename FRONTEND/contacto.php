@@ -13,8 +13,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         body { font-family: 'Inter', sans-serif; }
         .gradient-text {
-            background: linear-gradient(135deg, #c24242 0%, #000000cc 100%);
-            
+            background: linear-gradient(135deg, #c24242 0%, #000000cc 100%);            
             -webkit-text-fill-color: transparent;
         }
     </style>
@@ -324,7 +323,7 @@
     </section>
 
     <!-- CTA Final -->
-    <section class="py-20 bg-gradient-to-br from-green-500 via-lime-400 to-yellow-300">
+    <section class="bg-gradient-to-br from-neutral-900 via-zinc-900 to-black text-white py-16">
         <div class="max-w-5xl mx-auto px-4 text-center">
             <h2 class="text-4xl md:text-5xl font-black text-white mb-6 drop-shadow-2xl">
                 ¿Prefieres hablar directamente?
@@ -333,10 +332,10 @@
                 Llámanos ahora y un ejecutivo te atenderá de inmediato
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="tel:+525555555555" class="bg-white text-green-600 px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                <a href="tel:+525555555555" class="bg-white text-red-600 px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all transform hover:scale-105">
                     <i class="fas fa-phone mr-2"></i>Llamar Ahora
                 </a>
-                <a href="https://wa.me/5255555555" target="_blank" class="bg-green-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-green-600 transition-all transform hover:scale-105">
+                <a href="https://wa.me/5255555555" target="_blank" class="bg-red-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-red-600 transition-all transform hover:scale-105">
                     <i class="fab fa-whatsapp mr-2"></i>WhatsApp
                 </a>
             </div>
@@ -348,7 +347,7 @@
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-3 gap-12 mb-12">
                 <div>
-                    <img src="logo-sodilasa.jpg" alt="SODILASA" class="h-20 w-20 mb-4">
+                    <img src="assets/images/logo_sodilasa.png" alt="SODILASA" class="h-20 w-20 mb-4">
                     <h3 class="text-2xl font-display font-bold mb-2">SODILASA</h3>
                     <p class="text-gray-400">Soluciones Diésel Laguna</p>
                     <p class="text-gray-400 text-sm mt-4">Refaccionaria especializada en camiones diésel con más de 20 años de experiencia.</p>

@@ -220,7 +220,7 @@ function renderProductos(productosAMostrar) {
                 </div>
                 
                 <div class="flex gap-2">
-                    <a href="producto_detalle.html?id=${producto.id}" 
+                    <a href="producto_detalle.php?id=${producto.id}" 
                        class="flex-1 bg-gray-800 hover:bg-gray-900 text-white py-3 rounded-full font-bold text-sm text-center transition-all">
                         <i class="fas fa-eye mr-2"></i>Ver
                     </a>
