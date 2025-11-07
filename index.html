@@ -10,7 +10,7 @@
     <title>SODILASA - Soluciones Diésel Laguna | Refacciones y Taller Mecánico</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../BACKEND/assets/images/logo_sodilasa.png">    
+    <link rel="icon" type="image/x-icon" href="BACKEND/assets/images/logo_sodilasa.png">    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>    
     <!-- Font Awesome -->
@@ -28,7 +28,7 @@
     </style>
     
     <!-- Estilos Personalizados -->
-    <link rel="stylesheet" href="../BACKEND/assets/css/styles.css">
+    <link rel="stylesheet" href="BACKEND/assets/css/styles.css">
 </head>
 <body>
 
@@ -37,7 +37,7 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-4">
-                    <img src="../BACKEND/assets/images/logo_sodilasa.png" alt="SODILASA Logo" class="h-16 w-16 object-contain">
+                    <img src="BACKEND/assets/images/logo_sodilasa.png" alt="SODILASA Logo" class="h-16 w-16 object-contain">
                     <div>
                         <h1 class="text-2xl font-display font-black text-white">SODILASA</h1>
                         <p class="text-xs text-gray-400">Soluciones Diésel Laguna</p>
@@ -55,100 +55,15 @@
                 </button>
                 
                 <div id="menu" class="hidden lg:flex items-center space-x-6">
-                    <a href="index.php#inicio" class="hover:text-red-500 transition font-medium">Inicio</a>
-                    <!-- <a href="#productos" class="hover:text-red-500 transition font-medium">Productos</a> -->
+                    <a href="#inicio" class="hover:text-red-500 transition font-medium">Inicio</a>
+                    <a href="#productos" class="hover:text-red-500 transition font-medium">Productos</a> 
 
-                     <!-- Dropdown Productos CON SCROLL -->
-                    <div class="dropdown relative">
-                    <button class="nav-link  hover:text-red-600 font-medium flex items-center transition">
-                        Productos <i class="fas fa-chevron-down ml-2 text-xs"></i>
-                    </button>
-                    <!-- MEGAMENU CON SCROLL -->
-                    <div class="dropdown-content absolute left-0 mt-3  rounded-2xl shadow-2xl border p-6 w-[550px] grid grid-cols-3 gap-6 z-50 max-h-[500px] overflow-y-auto"
-                    style="background-color: rgb(220 38 38 / 57%);">
-                        <!-- Columna 1: Líneas -->
-                        <div>
-                        <div class="text-xs font-bold text-white-600 uppercase mb-3 flex items-center">
-                            <i class="fa-jelly fa-regular fa-clipboard mr-2"></i> Líneas
-                        </div>
-                        <ul class="space-y-1"> 
-                            <li>
-                                <a class="block px-3 py-2 rounded-lg hover:bg-red-50 hover:text-red-600 transition text-sm"
-                                    href="">
-                                <i class="fas fa-angle-right mr-2 text-xs"></i>linea 1
-                                </a>
-                            </li>
-                            <li>
-                                <a class="block px-3 py-2 rounded-lg hover:bg-red-50 hover:text-red-600 transition text-sm"
-                                    href="">
-                                <i class="fas fa-angle-right mr-2 text-xs"></i>linea 2
-                                </a>
-                            </li>
-                            <li>
-                                <a class="block px-3 py-2 rounded-lg hover:bg-red-50 hover:text-red-600 transition text-sm"
-                                    href="">
-                                <i class="fas fa-angle-right mr-2 text-xs"></i>linea 3
-                                </a>
-                            </li>  
-                        </ul>
-                        </div>
+                     
 
-                        <!-- Columna 2: Categorías -->
-                        <div>
-                            <div class="text-xs font-bold text-white-600 uppercase mb-3 flex items-center">
-                                <i class="fas fa-layer-group mr-2"></i> Categorías
-                            </div>                   
-                            <ul class="space-y-1">               
-                                <li>
-                                <a class="block px-3 py-2 rounded-lg hover:bg-red-50 hover:text-red-600 transition font-medium text-sm"
-                                    href="">
-                                <i class="fas fa-angle-right mr-2 text-xs"></i>Categoria 1                                    
-                                </a>   
-                                <!-- SUB CATEGORIAS  -->
-                                    <ul class="mt-1 ml-3 border-l-2 border-red-200 pl-3 space-y-1">                                    
-                                        <li>
-                                        <a class="block px-2 py-1 rounded hover:bg-red-50 hover:text-red-600 transition text-xs"
-                                            href="">
-                                             <i class="fas fa-angle-right mr-2 text-xs"></i>Sub categoria 1  
-                                            
-                                        </a>
-                                        </li>
-                                    
-                                    </ul>                               
-                                </li>                            
-                            </ul> 
-                        </div>
-
-                        <!-- Columna 3: Accesos rápidos -->
-                        <div class="bg-gradient-to-br from-red-50 to-lime-50 rounded-xl p-4">
-                        <div class="text-xs font-bold text-red-600 uppercase mb-3">
-                            🌟 Destacados
-                        </div>
-                        <div class="space-y-2">
-                            <a href="productos.php?tipo=premium" class="block p-3 bg-white rounded-lg hover:shadow-md transition">
-                            <div class="font-bold text-sm text-gray-800">⭐ Premium</div>
-                            <div class="text-xs text-gray-600">Pesca del día</div>
-                            </a>
-                            <a href="productos.php?tipo=gourmet" class="block p-3 bg-white rounded-lg hover:shadow-md transition">
-                            <div class="font-bold text-sm text-gray-800">👑 Gourmet</div>
-                            <div class="text-xs text-gray-600">Mariscos vivos</div>
-                            </a>
-                            <a href="productos.php?tipo=fresco" class="block p-3 bg-white rounded-lg hover:shadow-md transition">
-                            <div class="font-bold text-sm text-gray-800">❄️ Frescos</div>
-                            <div class="text-xs text-gray-600">Disponible 365 días</div>
-                            </a>
-                        </div>
-                        <a href="producto.php" class="block mt-3 text-center text-xs text-red-600 hover:text-red-700 font-semibold">
-                            Ver todos los productos →
-                        </a>
-                        </div>
-                    </div>
-                    </div>
-
-                    <a href="index.php#servicios" class="hover:text-red-500 transition font-medium">Servicios</a>
-                    <a href="index.php#sucursales" class="hover:text-red-500 transition font-medium">Sucursales</a>
+                    <a href="#servicios" class="hover:text-red-500 transition font-medium">Servicios</a>
+                    <a href="#sucursales" class="hover:text-red-500 transition font-medium">Sucursales</a>
                     <!-- <a href="contacto.html" class="hover:text-red-500 transition font-medium">Contacto</a> -->
-                    <a href="index.php#cotizacion" class="btn-red px-6 py-2 text-sm">
+                    <a href="#cotizacion" class="btn-red px-6 py-2 text-sm">
                         <i class="fas fa-calculator mr-2"></i>Cotizar
                     </a>
                 </div>
@@ -158,54 +73,14 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden lg:hidden bg-white border-t max-h-[80vh] overflow-y-auto">
                 <div class="px-4 py-3 space-y-3">
-                <a href="index.php#inicio" class="block text-gray-700 hover:text-red-600 font-medium py-2">
+                <a href="#inicio" class="block text-gray-700 hover:text-red-600 font-medium py-2">
                     <i class="fas fa-home mr-2"></i>Inicio
-                </a>
+                </a>                
 
-                <!-- Mobile Productos -->
-                <div>
-                    <button data-target="#mb-prod" class="w-full text-left text-gray-700 hover:text-red-600 font-medium flex justify-between items-center py-2">
-                    <span><i class="fas fa-book mr-2"></i>Productos</span>
-                    <i class="fas fa-chevron-down text-xs"></i>
-                    </button>
-                    <div id="mb-prod" class="hidden pl-4 mt-2 space-y-2 max-h-60 overflow-y-auto">
-                    
-                        <div class="text-xs uppercase text-gray-400 font-bold mt-2">Líneas</div>
-                        
-                        <a href="" class="block text-gray-600 hover:text-red-600 text-sm py-1">
-                            <i class="fas fa-angle-right mr-1 text-xs"></i>
-                        </a>
-                        
-                        <div class="text-xs uppercase text-gray-400 font-bold mt-3">Categorías</div>
-                        
-                        <a href="" class="block text-gray-600 hover:text-red-600 text-sm py-1">
-                           
-                        </a>
-                        
-                           
-                            <a href="" class="block text-gray-500 hover:text-red-600 text-xs pl-3 py-1">
-                                • 
-                            </a>                         
-                       
-                    
-                    <div class="border-t pt-2 mt-2">
-                        <a href="productos.php?tipo=premium" class="block text-orange-600 hover:text-orange-700 text-sm py-1 font-semibold">
-                        ⭐ Premium
-                        </a>
-                        <a href="productos.php?tipo=gourmet" class="block text-yellow-600 hover:text-yellow-700 text-sm py-1 font-semibold">
-                        👑 Gourmet
-                        </a>
-                        <a href="productos.php?tipo=fresco" class="block text-red-600 hover:text-red-700 text-sm py-1 font-semibold">
-                        ❄️ Frescos
-                        </a>
-                    </div>
-                    </div>
-                </div>
-
-                <!-- <a href="nosotros.php" class="block text-gray-700 hover:text-red-600 font-medium py-2">
-                    <i class="fas fa-users mr-2"></i>Nosotros
-                </a> -->
-                <a href="servicios.php" class="block text-gray-700 hover:text-red-600 font-medium py-2">
+                 <a href="#productos" class="block text-gray-700 hover:text-red-600 font-medium py-2">
+                    <i class="fa-jelly fa-regular fa-clipboard mr-2"></i>Productos
+                </a> 
+                <a href="#servicios" class="block text-gray-700 hover:text-red-600 font-medium py-2">
                     <i class="fas fa-truck mr-2"></i>Servicios
                 </a>
                 <!-- <a href="index.php#gourmet" class="block text-gray-700 hover:text-red-600 font-medium py-2">
@@ -215,7 +90,7 @@
                     <i class="fas fa-envelope mr-2"></i>Contacto
                 </a> -->
                 
-                <a href="" class="block btn-red text-white text-center px-6 py-3 rounded-full font-bold mt-4">
+                <a href="#cotizacion" class="block btn-red text-white text-center px-6 py-3 rounded-full font-bold mt-4">
                     <i class="fas fa-phone mr-2"></i>Cotizar Ahora
                 </a>
                 </div>
@@ -624,7 +499,7 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-3 gap-12 mb-12">
                 <div>
-                    <img src="../BACKEND/assets/images/logo_sodilasa.png" alt="SODILASA" class="h-20 w-20 mb-4">
+                    <img src="BACKEND/assets/images/logo_sodilasa.png" alt="SODILASA" class="h-20 w-20 mb-4">
                     <h3 class="text-2xl font-display font-bold mb-2">SODILASA</h3>
                     <p class="text-gray-400">Soluciones Diésel Laguna</p>
                     <p class="text-gray-400 text-sm mt-4">Refaccionaria especializada en camiones diésel con más de 20 años de experiencia.</p>
@@ -667,7 +542,7 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
     </a>
 
     <!-- Scripts -->
-    <script src="../BACKEND/assets/js/productos.js"></script>
+    <script src="BACKEND/assets/js/productos.js"></script>
     
 </body>
 </html>

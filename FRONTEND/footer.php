@@ -3,7 +3,7 @@
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-3 gap-12 mb-12">
                 <div>
-                    <img src="../BACKEND/assets/images/logo_sodilasa.png" alt="SODILASA" class="h-20 w-20 mb-4">
+                    <img src="BACKEND/assets/images/logo_sodilasa.png" alt="SODILASA" class="h-20 w-20 mb-4">
                     <h3 class="text-2xl font-display font-bold mb-2">SODILASA</h3>
                     <p class="text-gray-400">Soluciones Diésel Laguna</p>
                     <p class="text-gray-400 text-sm mt-4">Refaccionaria especializada en camiones diésel con más de 20 años de experiencia.</p>
