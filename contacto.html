@@ -1,0 +1,398 @@
+<!--  -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - SODILASA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #c24242 0%, #000000cc 100%);
+            
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+ <!-- Navbar Premium -->
+    <nav class="bg-gradient-to-r from-neutral-900 via-zinc-800 to-black text-white py-4 shadow-2xl fixed w-full top-0 z-50 border-b border-red-600/30">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <img src="assets/images/logo_sodilasa.png" alt="SODILASA Logo" class="h-16 w-16 object-contain">
+                    <div>
+                        <h1 class="text-2xl font-display font-black text-white">SODILASA</h1>
+                        <p class="text-xs text-gray-400">Soluciones Diésel Laguna</p>
+                    </div>
+                </div>
+                
+                <button id="menuToggle" class="lg:hidden text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div id="menu" class="hidden lg:flex items-center space-x-6">
+                    <a href="#inicio" class="hover:text-red-500 transition font-medium">Inicio</a>
+                    <a href="#productos" class="hover:text-red-500 transition font-medium">Productos</a>
+                    <a href="#servicios" class="hover:text-red-500 transition font-medium">Servicios</a>
+                    <a href="#sucursales" class="hover:text-red-500 transition font-medium">Sucursales</a>
+                    <a href="contacto.html" class="hover:text-red-500 transition font-medium">Contacto</a>
+                    <a href="#cotizacion" class="btn-red px-6 py-2 text-sm">
+                        <i class="fas fa-calculator mr-2"></i>Cotizar
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden lg:hidden mt-4 space-y-3 pb-4">
+                <a href="#inicio" class="block hover:text-red-500 transition">Inicio</a>
+                <a href="#productos" class="block hover:text-red-500 transition">Productos</a>
+                <a href="#servicios" class="block hover:text-red-500 transition">Servicios</a>
+                <a href="#sucursales" class="block hover:text-red-500 transition">Sucursales</a>
+                <a href="#cotizacion" class="block btn-red px-6 py-2 rounded-full text-center">Cotizar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative bg-gradient-to-br from-green-500 via-lime-400 to-yellow-300 pt-32 pb-20 overflow-hidden">
+        <div class="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center text-white">
+                <div class="inline-block bg-white/20 backdrop-blur-sm px-6 py-2 rounded-full mb-4">
+                    <span class="text-sm font-bold tracking-wider">📞 ESTAMOS PARA ATENDERTE</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 drop-shadow-2xl">
+                    Contáctanos
+                </h1>
+                <p class="text-2xl md:text-3xl font-light drop-shadow-lg mb-4">
+                    Servicio al cliente 24/7
+                </p>
+                <p class="text-xl text-white/90 max-w-3xl mx-auto">
+                    Estamos disponibles todos los días del año para atenderte
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Información de Contacto y Formulario -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Formulario -->
+                <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-10">
+                    <h2 class="text-3xl font-black mb-2 text-gray-900">Envíanos un mensaje</h2>
+                    <p class="text-gray-600 mb-8">Responderemos lo más pronto posible</p>
+                    
+                    <form action="contact_submit.php" method="post" class="space-y-6">
+                        <!-- Nombre -->
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">
+                                <i class="fas fa-user mr-1 text-green-600"></i> Nombre Completo *
+                            </label>
+                            <input required 
+                                   name="name" 
+                                   type="text"
+                                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none transition"
+                                   placeholder="Ej: Juan Pérez">
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">
+                                <i class="fas fa-envelope mr-1 text-green-600"></i> Correo Electrónico *
+                            </label>
+                            <input required 
+                                   name="email" 
+                                   type="email"
+                                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none transition"
+                                   placeholder="tu@email.com">
+                        </div>
+
+                        <!-- Teléfono -->
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">
+                                <i class="fas fa-phone mr-1 text-green-600"></i> Teléfono
+                            </label>
+                            <input name="phone" 
+                                   type="tel"
+                                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none transition"
+                                   placeholder="55 1234 5678">
+                        </div>
+
+                        <!-- Empresa -->
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">
+                                <i class="fas fa-building mr-1 text-green-600"></i> Empresa / Negocio
+                            </label>
+                            <input name="company" 
+                                   type="text"
+                                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none transition"
+                                   placeholder="Nombre de tu empresa">
+                        </div>
+
+                        <!-- Tipo de Solicitud -->
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">
+                                <i class="fas fa-tag mr-1 text-green-600"></i> Tipo de Solicitud *
+                            </label>
+                            <select required
+                                    name="request_type"
+                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none transition">
+                                <option value="">Selecciona una opción</option>
+                                <option value="cotizacion">Solicitud de Cotización</option>
+                                <option value="producto" <?= $producto_ref ? 'selected' : '' ?>>Consulta sobre Producto</option>
+                                <option value="pedido">Realizar Pedido</option>
+                                <option value="servicio">Información sobre Servicios</option>
+                                <option value="proveedor">Quiero ser Proveedor</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <!-- Producto Referenciado (si viene de página de producto) -->
+                        <?php if($producto_ref): ?>
+                            <div class="bg-green-50 border-2 border-green-200 rounded-xl p-4">
+                                <p class="text-sm font-bold text-green-800 mb-1">
+                                    <i class="fas fa-fish mr-1"></i> Producto de interés:
+                                </p>
+                                <p class="text-green-700 font-semibold"><?= htmlspecialchars($producto_ref) ?></p>
+                                <input type="hidden" name="producto_referencia" value="<?= htmlspecialchars($producto_ref) ?>">
+                            </div>
+                        <?php endif; ?>
+
+                        <!-- Mensaje -->
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">
+                                <i class="fas fa-comment mr-1 text-green-600"></i> Mensaje *
+                            </label>
+                            <textarea required 
+                                      name="message" 
+                                      rows="5"
+                                      class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none transition resize-none"
+                                      placeholder="Cuéntanos qué necesitas..."></textarea>
+                        </div>
+
+                        <!-- Botón -->
+                        <button type="submit"
+                                class="w-full bg-gradient-to-r from-green-600 to-lime-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                            <i class="fas fa-paper-plane mr-2"></i>Enviar Mensaje
+                        </button>
+
+                        <p class="text-xs text-gray-500 text-center">
+                            * Campos obligatorios. Tus datos están protegidos y no serán compartidos.
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Información de Contacto -->
+                <div class="space-y-6">
+                    <!-- Contacto Directo -->
+                    <div class="bg-gradient-to-br from-green-500 to-lime-500 rounded-3xl p-8 text-white shadow-2xl">
+                        <h3 class="text-2xl font-black mb-6">Contacto Directo</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-phone text-2xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold mb-1">Teléfono 24/7</p>
+                                    <a href="tel:+525555555555" class="text-lg hover:text-yellow-200 transition">
+                                        55 5555 5555
+                                    </a>
+                                    <p class="text-sm text-white/80 mt-1">Servicio disponible las 24 horas</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fab fa-whatsapp text-2xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold mb-1">WhatsApp</p>
+                                    <a href="https://wa.me/5255555555" target="_blank" class="text-lg hover:text-yellow-200 transition">
+                                        55 5555 5555
+                                    </a>
+                                    <p class="text-sm text-white/80 mt-1">Respuesta inmediata</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-envelope text-2xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold mb-1">Correo Electrónico</p>
+                                    <a href="mailto:info@duemexfoods.com" class="text-lg hover:text-yellow-200 transition">
+                                        info@duemexfoods.com
+                                    </a>
+                                    <p class="text-sm text-white/80 mt-1">Ventas y cotizaciones</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-2xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold mb-1">Ubicación</p>
+                                    <p class="text-lg">México</p>
+                                    <p class="text-sm text-white/80 mt-1">Cobertura nacional</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Horarios -->
+                    <div class="bg-white rounded-3xl p-8 shadow-xl">
+                        <h3 class="text-2xl font-black mb-6 text-gray-900">
+                            <i class="fas fa-clock text-green-600 mr-2"></i>Horarios de Atención
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center py-3 border-b">
+                                <span class="font-semibold text-gray-800">Lunes - Domingo</span>
+                                <span class="text-green-600 font-bold">24 HORAS</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b">
+                                <span class="font-semibold text-gray-800">Entregas</span>
+                                <span class="text-green-600 font-bold">7 DÍAS</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3">
+                                <span class="font-semibold text-gray-800">Días festivos</span>
+                                <span class="text-green-600 font-bold">ABIERTO</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 bg-green-50 rounded-xl p-4">
+                            <p class="text-sm text-gray-700 text-center">
+                                <i class="fas fa-info-circle text-green-600 mr-1"></i>
+                                <strong>Disponibles 365 días al año</strong> para servirte
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Ventajas de Contactarnos -->
+                    <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 text-white shadow-xl">
+                        <h3 class="text-2xl font-black mb-6">¿Por qué elegirnos?</h3>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-2 mt-1 flex-shrink-0"></i>
+                                <span>Respuesta inmediata a cotizaciones</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-2 mt-1 flex-shrink-0"></i>
+                                <span>Asesoría personalizada para tu negocio</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-2 mt-1 flex-shrink-0"></i>
+                                <span>Precios competitivos sin intermediarios</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-2 mt-1 flex-shrink-0"></i>
+                                <span>Entrega con temperatura controlada</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-2 mt-1 flex-shrink-0"></i>
+                                <span>Productos disponibles todo el año</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa (Placeholder - puedes integrar Google Maps) -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-black text-gray-900 mb-4">
+                    Nuestra <span class="gradient-text">Ubicación</span>
+                </h2>
+                <p class="text-xl text-gray-600">Visítanos o contáctanos para más información</p>
+            </div>
+            
+            <!-- Aquí puedes integrar Google Maps -->
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden h-96 flex items-center justify-center">
+                <div class="text-center">
+                    <i class="fas fa-map-marked-alt text-6xl text-green-600 mb-4"></i>
+                    <p class="text-gray-600 font-semibold">Mapa de ubicación</p>
+                    <p class="text-sm text-gray-500">Integra aquí tu Google Maps</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-20 bg-gradient-to-br from-green-500 via-lime-400 to-yellow-300">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-black text-white mb-6 drop-shadow-2xl">
+                ¿Prefieres hablar directamente?
+            </h2>
+            <p class="text-xl text-white/90 mb-8 drop-shadow-lg">
+                Llámanos ahora y un ejecutivo te atenderá de inmediato
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:+525555555555" class="bg-white text-green-600 px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                    <i class="fas fa-phone mr-2"></i>Llamar Ahora
+                </a>
+                <a href="https://wa.me/5255555555" target="_blank" class="bg-green-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-green-600 transition-all transform hover:scale-105">
+                    <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-neutral-900 via-zinc-900 to-black text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <img src="logo-sodilasa.jpg" alt="SODILASA" class="h-20 w-20 mb-4">
+                    <h3 class="text-2xl font-display font-bold mb-2">SODILASA</h3>
+                    <p class="text-gray-400">Soluciones Diésel Laguna</p>
+                    <p class="text-gray-400 text-sm mt-4">Refaccionaria especializada en camiones diésel con más de 20 años de experiencia.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-red-500">Contacto</h4>
+                    <div class="space-y-3 text-gray-400">
+                        <p><i class="fas fa-phone text-red-500 mr-2"></i>(871) 123-4567</p>
+                        <p><i class="fas fa-envelope text-red-500 mr-2"></i>info@sodilasa.com</p>
+                        <p><i class="fas fa-clock text-red-500 mr-2"></i>Lun-Vie: 8AM-7PM</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-red-500">Síguenos</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 SODILASA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+     <!-- Estilos Personalizados -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+</body>
+</html>

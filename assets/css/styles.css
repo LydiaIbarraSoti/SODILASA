@@ -1,0 +1,262 @@
+/* ============================================
+   SODILASA - Soluciones Diésel Laguna
+   Archivo de Estilos Principal
+   ============================================ */
+
+/* === IMPORTACIÓN DE FUENTES === */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap');
+
+/* === VARIABLES CSS === */
+:root {
+    /* Colores Corporativos */
+    --color-rojo-principal: #DC143C;
+    --color-rojo-oscuro: #B71C1C;
+    --color-rojo-hover: #FF1744;
+    --color-negro: #000000;
+    --color-negro-suave: #1a1a1a;
+    --color-gris-oscuro: #2d2d2d;
+    --color-gris: #6B7280;
+    --color-gris-claro: #F3F4F6;
+    --color-blanco: #FFFFFF;
+    
+    /* Colores de Estado */
+    --color-verde: #22C55E;
+    --color-verde-hover: #16A34A;
+    --color-naranja: #FF6B35;
+    --color-naranja-hover: #FF8C42;
+    --color-amarillo: #FFC107;
+    
+    /* Fuentes */
+    --font-principal: 'Roboto', sans-serif;
+    --font-display: 'Montserrat', sans-serif;
+    
+    /* Espaciados */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    
+    /* Sombras */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --shadow-roja: 0 4px 15px rgba(220, 20, 60, 0.4);
+    --shadow-roja-hover: 0 8px 25px rgba(220, 20, 60, 0.6);
+    
+    /* Bordes */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    --radius-full: 9999px;
+    
+    /* Transiciones */
+    --transition-base: all 0.3s ease;
+    --transition-fast: all 0.15s ease;
+    --transition-slow: all 0.5s ease;
+}
+
+/* === ESTILOS BASE === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-principal);
+    background-color: var(--color-blanco);
+    color: var(--color-gris-oscuro);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.font-display {
+    font-family: var(--font-display);
+}
+
+/* === UTILIDADES === */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* === GRADIENTES === */
+.gradient-red {
+    background: linear-gradient(135deg, var(--color-rojo-principal) 0%, var(--color-rojo-oscuro) 100%);
+}
+
+.gradient-dark {
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+}
+
+/* === BOTONES === */
+.btn-red {
+    background: linear-gradient(135deg, var(--color-rojo-principal) 0%, var(--color-rojo-oscuro) 100%);
+    color: var(--color-blanco);
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    border-radius: var(--radius-full);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-roja);
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-red:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-roja-hover);
+    background: linear-gradient(135deg, var(--color-rojo-hover) 0%, var(--color-rojo-principal) 100%);
+}
+
+.btn-outline-red {
+    background: transparent;
+    border: 2px solid var(--color-rojo-principal);
+    color: var(--color-rojo-principal);
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: var(--transition-base);
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-outline-red:hover {
+    background: var(--color-rojo-principal);
+    color: var(--color-blanco);
+}
+
+/* === TARJETAS === */
+.card-hover {
+    transition: var(--transition-base);
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(220, 20, 60, 0.2);
+}
+
+/* === BADGES === */
+.badge-premium {
+    background: linear-gradient(135deg, var(--color-naranja) 0%, var(--color-naranja-hover) 100%);
+    color: var(--color-blanco);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.badge-stock {
+    background: linear-gradient(135deg, var(--color-verde) 0%, var(--color-verde-hover) 100%);
+    color: var(--color-blanco);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.badge-red {
+    background: linear-gradient(135deg, rgba(220, 20, 60, 0.1) 0%, rgba(139, 0, 0, 0.1) 100%);
+    border: 1px solid rgba(220, 20, 60, 0.3);
+    color: #8B0000;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 700;
+    display: inline-block;
+}
+
+/* === LÍNEA DECORATIVA === */
+.decorative-line {
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, var(--color-rojo-principal) 50%, transparent 100%);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem !important;
+    }
+    
+    h2 {
+        font-size: 1.75rem !important;
+    }
+}
+
+/* === ANIMACIONES === */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* === SCROLL SUAVE === */
+html {
+    scroll-behavior: smooth;
+}
+
+/* === SELECCIÓN DE TEXTO === */
+::selection {
+    background-color: var(--color-rojo-principal);
+    color: var(--color-blanco);
+}
+
+::-moz-selection {
+    background-color: var(--color-rojo-principal);
+    color: var(--color-blanco);
+}
+
+/* === SCROLLBAR PERSONALIZADA === */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-gris-claro);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-rojo-principal);
+    border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-rojo-oscuro);
+}

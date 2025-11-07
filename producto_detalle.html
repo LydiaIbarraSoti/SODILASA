@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro de Aceite Cummins - SODILASA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap');
+        
+        body { 
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .font-display { 
+            font-family: 'Montserrat', sans-serif; 
+        }
+        
+        .gradient-red {
+            background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
+        }
+        
+        .btn-red {
+            background: linear-gradient(135deg, #DC143C 0%, #B71C1C 100%);
+            color: white;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
+        }
+        .btn-red:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(220, 20, 60, 0.6);
+        }
+        
+        .badge-premium {
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+        }
+        
+        .badge-stock {
+            background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
+        }
+        
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navbar Premium -->
+    <nav class="bg-gradient-to-r from-neutral-900 via-zinc-800 to-black text-white py-4 shadow-2xl fixed w-full top-0 z-50 border-b border-red-600/30">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <img src="../uploads/img/logo_sodilasa.png" alt="SODILASA Logo" class="h-16 w-16 object-contain">
+                    <div>
+                        <h1 class="text-2xl font-display font-black text-white">SODILASA</h1>
+                        <p class="text-xs text-gray-400">Soluciones Diésel Laguna</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="index.html" class="hover:text-red-500 transition font-medium">Inicio</a>
+                    <a href="index.html#productos" class="hover:text-red-500 transition font-medium">Productos</a>
+                    <a href="index.html#servicios" class="hover:text-red-500 transition font-medium">Servicios</a>
+                    <a href="index.html#sucursales" class="hover:text-red-500 transition font-medium">Sucursales</a>
+                    <a href="index.html#cotizacion" class="btn-red px-6 py-2 rounded-full text-sm">
+                        <i class="fas fa-calculator mr-2"></i>Cotizar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="pt-32 pb-6 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center space-x-2 text-sm text-gray-600">
+                <a href="index.html" class="hover:text-red-600">Inicio</a>
+                <i class="fas fa-chevron-right text-xs"></i>
+                <a href="index.html#productos" class="hover:text-red-600">Productos</a>
+                <i class="fas fa-chevron-right text-xs"></i>
+                <span class="text-red-600 font-semibold">Filtro de Aceite Cummins</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detalle del Producto -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12">
+                
+                <!-- Columna Izquierda - Imagen -->
+                <div class="space-y-4">
+                    <!-- Imagen Principal -->
+                    <div class="relative bg-gray-100 rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-200">
+                        <img id="mainImage" 
+                             src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800" 
+                             alt="Filtro de Aceite Cummins" 
+                             class="w-full h-[500px] object-cover">
+                        
+                        <!-- Badges -->
+                        <div class="absolute top-6 right-6 space-y-2">
+                            <div class="badge-premium text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                                <i class="fas fa-star mr-2"></i>PREMIUM
+                            </div>
+                            <div class="badge-stock text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                                <i class="fas fa-check-circle mr-2"></i>DISPONIBLE
+                            </div>
+                        </div>
+                        
+                        <div class="absolute top-6 left-6">
+                            <div class="bg-black/70 text-white px-4 py-2 rounded-full text-sm font-bold backdrop-blur-sm">
+                                Cummins
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Certificaciones -->
+                    <div class="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-6 border border-amber-200">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                            <i class="fas fa-certificate text-amber-600 mr-2"></i>
+                            Certificaciones
+                        </h3>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-3 bg-white rounded-xl">
+                                <i class="fas fa-shield-alt text-3xl text-amber-600 mb-2"></i>
+                                <p class="text-sm font-semibold text-gray-900">Calidad ISO</p>
+                            </div>
+                            
+                            <div class="text-center p-3 bg-white rounded-xl">
+                                <i class="fas fa-award text-3xl text-amber-600 mb-2"></i>
+                                <p class="text-sm font-semibold text-gray-900">Original Cummins</p>
+                            </div>
+                            
+                            <div class="text-center p-3 bg-white rounded-xl">
+                                <i class="fas fa-check-double text-3xl text-amber-600 mb-2"></i>
+                                <p class="text-sm font-semibold text-gray-900">Garantizado</p>
+                            </div>
+                            
+                            <div class="text-center p-3 bg-white rounded-xl">
+                                <i class="fas fa-calendar-check text-3xl text-amber-600 mb-2"></i>
+                                <p class="text-sm font-semibold text-gray-900">365 Días</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha - Información -->
+                <div class="space-y-6">
+                    
+                    <!-- Tags -->
+                    <div class="flex items-center gap-3 flex-wrap">
+                        <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-bold">
+                            Productos Especiales
+                        </span>
+                        <span class="badge-stock text-white px-3 py-1 rounded-full text-xs font-bold">
+                            <i class="fas fa-check mr-1"></i>DISPONIBLE
+                        </span>
+                    </div>
+                    
+                    <!-- Título -->
+                    <h1 class="text-4xl lg:text-5xl font-display font-black text-gray-900">
+                        Filtro de Aceite Cummins
+                    </h1>
+                    
+                    <!-- Precio -->
+                    <div class="bg-gradient-to-r from-amber-50 to-yellow-50 rounded-2xl p-6 border border-amber-200">
+                        <p class="text-sm text-gray-600 mb-2 font-semibold">Precio disponible a cotización</p>
+                        <p class="text-3xl font-black text-red-600">$450.00 MXN</p>
+                        <p class="text-xs text-gray-500 mt-2">Contáctanos para obtener el mejor precio</p>
+                    </div>
+                    
+                    <!-- Características -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                            <i class="fas fa-info-circle text-red-600 mr-2"></i>
+                            Características
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center border-b border-gray-100 pb-3">
+                                <span class="text-gray-600 font-medium">Categoría:</span>
+                                <span class="font-bold text-gray-900">Motor</span>
+                            </div>
+                            
+                            <div class="flex justify-between items-center border-b border-gray-100 pb-3">
+                                <span class="text-gray-600 font-medium">Marca:</span>
+                                <span class="font-bold text-gray-900">Cummins</span>
+                            </div>
+                            
+                            <div class="flex justify-between items-center border-b border-gray-100 pb-3">
+                                <span class="text-gray-600 font-medium">Disponibilidad:</span>
+                                <span class="font-bold text-green-600">
+                                    <i class="fas fa-check-circle mr-1"></i>365 Días al año
+                                </span>
+                            </div>
+                            
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 font-medium">Entrega:</span>
+                                <span class="font-bold text-amber-600">
+                                    <i class="fas fa-truck mr-1"></i>24/7 Temperatura controlada
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Descripción -->
+                    <div class="bg-gray-50 rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Descripción</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Filtro de aceite original para motores Cummins ISX/ISM. Diseñado con tecnología de filtración avanzada que garantiza la máxima protección del motor. Compatible con sistemas de lubricación de alta presión. Cumple con todas las especificaciones del fabricante y ofrece un rendimiento superior en condiciones extremas de trabajo.
+                        </p>
+                        
+                        <div class="mt-4 space-y-2">
+                            <p class="text-gray-700"><i class="fas fa-check text-green-600 mr-2"></i>Compatible con ISX y ISM</p>
+                            <p class="text-gray-700"><i class="fas fa-check text-green-600 mr-2"></i>Filtración de alta eficiencia</p>
+                            <p class="text-gray-700"><i class="fas fa-check text-green-600 mr-2"></i>Resistente a altas temperaturas</p>
+                            <p class="text-gray-700"><i class="fas fa-check text-green-600 mr-2"></i>Garantía de fábrica incluida</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Ventajas SODILASA -->
+                    <div class="bg-gradient-to-br from-neutral-900 to-zinc-900 rounded-2xl p-6 text-white">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-crown text-amber-400 mr-2"></i>
+                            Ventajas SODILASA
+                        </h3>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-circle text-amber-400 text-xs mt-1.5"></i>
+                                <p class="text-gray-200">Refacciones originales directas de fábrica</p>
+                            </div>
+                            
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-circle text-amber-400 text-xs mt-1.5"></i>
+                                <p class="text-gray-200">Sin intermediarios - Precios competitivos</p>
+                            </div>
+                            
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-circle text-amber-400 text-xs mt-1.5"></i>
+                                <p class="text-gray-200">Entrega 24/7 con temperatura controlada</p>
+                            </div>
+                            
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-circle text-amber-400 text-xs mt-1.5"></i>
+                                <p class="text-gray-200">Garantía y soporte técnico especializado</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Botones de Acción -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="agregarACotizacion()" class="flex-1 btn-red px-8 py-4 rounded-full text-lg font-bold">
+                            <i class="fas fa-cart-plus mr-2"></i>Agregar a Cotización
+                        </button>
+                        
+                        <a href="https://wa.me/528711234567?text=Hola, me interesa el Filtro de Aceite Cummins" 
+                           target="_blank"
+                           class="flex-1 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-bold text-center transition-all">
+                            <i class="fab fa-whatsapp mr-2"></i>Consultar por WhatsApp
+                        </a>
+                    </div>
+                    
+                    <!-- Información Adicional -->
+                    <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-info-circle text-blue-600 text-xl mt-0.5"></i>
+                            <div>
+                                <p class="font-semibold text-blue-900">¿Tienes dudas sobre compatibilidad?</p>
+                                <p class="text-sm text-blue-700 mt-1">Nuestros expertos pueden ayudarte a verificar que esta refacción sea compatible con tu vehículo. Llámanos o escríbenos por WhatsApp.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Relacionados -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-display font-black text-gray-900 mb-4">
+                    Productos <span class="text-red-600">Relacionados</span>
+                </h2>
+                <p class="text-gray-600">Otros productos que podrían interesarte</p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Producto Relacionado 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all border border-gray-200">
+                    <div class="relative h-48 bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400" 
+                             alt="Bomba de Agua" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-3 right-3 bg-green-600 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            Disponible
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-xs text-red-600 font-bold mb-1">MOTOR</p>
+                        <h3 class="font-bold text-gray-900 mb-2">Bomba de Agua Detroit</h3>
+                        <p class="text-red-600 font-black text-lg mb-3">$3,500.00</p>
+                        <a href="#" class="btn-red w-full py-2 rounded-full text-sm text-center block">
+                            Ver Detalles
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Producto Relacionado 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all border border-gray-200">
+                    <div class="relative h-48 bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=400" 
+                             alt="Kit de Empaques" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-3 right-3 bg-green-600 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            Disponible
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-xs text-red-600 font-bold mb-1">MOTOR</p>
+                        <h3 class="font-bold text-gray-900 mb-2">Kit de Empaques Motor</h3>
+                        <p class="text-red-600 font-black text-lg mb-3">$2,800.00</p>
+                        <a href="#" class="btn-red w-full py-2 rounded-full text-sm text-center block">
+                            Ver Detalles
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Producto Relacionado 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all border border-gray-200">
+                    <div class="relative h-48 bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=400" 
+                             alt="Turbo Cargador" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-3 right-3 bg-green-600 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            Disponible
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-xs text-red-600 font-bold mb-1">MOTOR</p>
+                        <h3 class="font-bold text-gray-900 mb-2">Turbo Cargador Garrett</h3>
+                        <p class="text-red-600 font-black text-lg mb-3">$15,000.00</p>
+                        <a href="#" class="btn-red w-full py-2 rounded-full text-sm text-center block">
+                            Ver Detalles
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Producto Relacionado 4 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all border border-gray-200">
+                    <div class="relative h-48 bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400" 
+                             alt="Aceite de Motor" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-3 right-3 bg-green-600 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            Disponible
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-xs text-red-600 font-bold mb-1">MOTOR</p>
+                        <h3 class="font-bold text-gray-900 mb-2">Aceite Sintético 15W-40</h3>
+                        <p class="text-red-600 font-black text-lg mb-3">$850.00</p>
+                        <a href="#" class="btn-red w-full py-2 rounded-full text-sm text-center block">
+                            Ver Detalles
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-neutral-900 via-zinc-900 to-black text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <img src="../uploads/img/logo_sodilasa.png" alt="SODILASA" class="h-20 w-20 mb-4">
+                    <h3 class="text-2xl font-display font-bold mb-2">SODILASA</h3>
+                    <p class="text-gray-400">Soluciones Diésel Laguna</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-red-500">Contacto</h4>
+                    <div class="space-y-3 text-gray-400">
+                        <p><i class="fas fa-phone text-red-500 mr-2"></i>(871) 123-4567</p>
+                        <p><i class="fas fa-envelope text-red-500 mr-2"></i>info@sodilasa.com</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-red-500">Síguenos</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 SODILASA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/528711234567" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-all z-50 hover:scale-110">
+        <i class="fab fa-whatsapp text-3xl text-white"></i>
+    </a>
+
+    <script src="assets/js/productos.js"></script>
+    <script>
+        // Obtener ID del producto de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productoId = parseInt(urlParams.get('id')) || 1;
+        
+        // Buscar producto
+        const producto = productos.find(p => p.id === productoId) || productos[0];
+        
+        // Cargar datos del producto dinámicamente
+        document.addEventListener('DOMContentLoaded', function() {
+            // Actualizar título de página
+            document.title = `${producto.nombre} - SODILASA`;
+            
+            // Actualizar breadcrumb
+            document.querySelector('.text-red-600.font-semibold').textContent = producto.nombre;
+            
+            // Actualizar imagen principal
+            document.getElementById('mainImage').src = producto.imagen;
+            document.getElementById('mainImage').alt = producto.nombre;
+            
+            // Actualizar badges
+            const stockBadge = document.querySelector('.badge-stock');
+            const stockText = producto.stock ? 
+                '<i class="fas fa-check-circle mr-2"></i>DISPONIBLE' : 
+                '<i class="fas fa-times-circle mr-2"></i>AGOTADO';
+            stockBadge.innerHTML = stockText;
+            stockBadge.className = producto.stock ? 
+                'badge-stock text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg' :
+                'bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg';
+            
+            // Actualizar marca
+            document.querySelector('.bg-black\\/70').textContent = producto.marca;
+            
+            // Actualizar título del producto
+            document.querySelector('h1.text-4xl').textContent = producto.nombre;
+            
+            // Actualizar precio
+            document.querySelector('.text-3xl.font-black.text-red-600').textContent = 
+                `$${producto.precio.toLocaleString('es-MX')} MXN`;
+            
+            // Actualizar características
+            const caracteristicas = document.querySelectorAll('.flex.justify-between.items-center');
+            caracteristicas[0].querySelector('.font-bold.text-gray-900').textContent = getCategoriaLabel(producto.categoria);
+            caracteristicas[1].querySelector('.font-bold.text-gray-900').textContent = producto.marca;
+            
+            // Actualizar estado de stock
+            if (producto.stock) {
+                caracteristicas[2].querySelector('.font-bold').innerHTML = 
+                    '<i class="fas fa-check-circle mr-1"></i>365 Días al año';
+                caracteristicas[2].querySelector('.font-bold').className = 'font-bold text-green-600';
+            } else {
+                caracteristicas[2].querySelector('.font-bold').innerHTML = 
+                    '<i class="fas fa-times-circle mr-1"></i>Temporalmente agotado';
+                caracteristicas[2].querySelector('.font-bold').className = 'font-bold text-red-600';
+            }
+            
+            // Actualizar descripción
+            document.querySelector('.bg-gray-50 .text-gray-700.leading-relaxed').textContent = 
+                producto.descripcion;
+            
+            // Actualizar tag de disponibilidad
+            const stockTag = document.querySelectorAll('.badge-stock')[1];
+            if (stockTag) {
+                stockTag.innerHTML = producto.stock ? 
+                    '<i class="fas fa-check mr-1"></i>DISPONIBLE' : 
+                    '<i class="fas fa-times mr-1"></i>AGOTADO';
+                stockTag.className = producto.stock ?
+                    'badge-stock text-white px-3 py-1 rounded-full text-xs font-bold' :
+                    'bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold';
+            }
+            
+            // Actualizar botón de WhatsApp
+            const whatsappBtn = document.querySelector('a[href*="wa.me"]');
+            whatsappBtn.href = `https://wa.me/528711234567?text=Hola, me interesa el ${encodeURIComponent(producto.nombre)} - ID: ${producto.id}`;
+            
+            // Deshabilitar botón de cotización si no hay stock
+            const btnCotizar = document.querySelector('button[onclick="agregarACotizacion()"]');
+            if (!producto.stock) {
+                btnCotizar.disabled = true;
+                btnCotizar.className = 'flex-1 bg-gray-400 cursor-not-allowed px-8 py-4 rounded-full text-lg font-bold text-white';
+                btnCotizar.innerHTML = '<i class="fas fa-times mr-2"></i>No Disponible';
+            }
+            
+            // Cargar productos relacionados
+            cargarProductosRelacionados();
+        });
+        
+        function cargarProductosRelacionados() {
+            const relacionados = productos
+                .filter(p => p.categoria === producto.categoria && p.id !== producto.id)
+                .slice(0, 4);
+            
+            const contenedor = document.querySelector('.grid.sm\\:grid-cols-2.lg\\:grid-cols-4');
+            
+            if (relacionados.length === 0) {
+                contenedor.innerHTML = '<p class="col-span-4 text-center text-gray-600">No hay productos relacionados disponibles</p>';
+                return;
+            }
+            
+            contenedor.innerHTML = relacionados.map(p => `
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all border border-gray-200">
+                    <div class="relative h-48 bg-gray-100">
+                        <img src="${p.imagen}" 
+                             alt="${p.nombre}" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-3 right-3 ${p.stock ? 'bg-green-600' : 'bg-red-600'} text-white px-2 py-1 rounded-full text-xs font-bold">
+                            ${p.stock ? 'Disponible' : 'Agotado'}
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-xs text-red-600 font-bold mb-1">${getCategoriaLabel(p.categoria).toUpperCase()}</p>
+                        <h3 class="font-bold text-gray-900 mb-2 line-clamp-2">${p.nombre}</h3>
+                        <p class="text-red-600 font-black text-lg mb-3">$${p.precio.toLocaleString('es-MX')}</p>
+                        <a href="producto_detalle.html?id=${p.id}" class="btn-red w-full py-2 rounded-full text-sm text-center block">
+                            Ver Detalles
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function agregarACotizacion() {
+            if (!producto.stock) {
+                alert('Lo sentimos, este producto no está disponible en este momento.');
+                return;
+            }
+            
+            // Agregar a cotización usando la función del productos.js
+            window.opener?.agregarACotizacion?.(producto.id);
+            
+            // Mostrar confirmación
+            const notif = document.createElement('div');
+            notif.className = 'fixed top-24 right-6 bg-green-600 text-white px-6 py-4 rounded-lg shadow-2xl z-50';
+            notif.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-check-circle text-2xl"></i>
+                    <div>
+                        <p class="font-bold">¡Producto agregado!</p>
+                        <p class="text-sm">Continúa comprando o ve a cotización</p>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(notif);
+            
+            setTimeout(() => {
+                notif.style.opacity = '0';
+                notif.style.transform = 'translateX(400px)';
+                notif.style.transition = 'all 0.3s ease';
+                setTimeout(() => notif.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
