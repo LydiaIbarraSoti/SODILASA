@@ -3,51 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filtro de Aceite Cummins - SODILASA</title>
+    <title id="page-title">Producto - SODILASA</title>
+    
+    <!-- Meta tags dinámicos -->
+    <meta id="meta-description" name="description" content="Refacciones para camiones diésel - SODILASA">
+    <meta id="meta-keywords" name="keywords" content="refacciones, camiones diesel, SODILASA">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="BACKEND/assets/images/logo_sodilasa.png">  
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap');
-        
-        body { 
-            font-family: 'Roboto', sans-serif;
+
+     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #c24242 0%, #000000cc 100%);
+            
+            -webkit-text-fill-color: transparent;
         }
-        
-        .font-display { 
-            font-family: 'Montserrat', sans-serif; 
-        }
-        
-        .gradient-red {
-            background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
-        }
-        
-        .btn-red {
-            background: linear-gradient(135deg, #DC143C 0%, #B71C1C 100%);
-            color: white;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
-        }
-        .btn-red:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(220, 20, 60, 0.6);
-        }
-        
-        .badge-premium {
-            background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
-        }
-        
-        .badge-stock {
-            background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
-        }
-        
-        html { scroll-behavior: smooth; }
+        @import "tailwindcss";
     </style>
+    
+    <!-- Estilos Personalizados -->
+    <link rel="stylesheet" href="BACKEND/assets/css/styles.css">
+    
 </head>
 <body class="bg-gray-50">
 
-    <!-- Navbar Premium -->
-    <!-- Navbar Premium -->
+    <!-- Navbar Premium (Igual que index.html) -->
     <nav class="bg-gradient-to-r from-neutral-900 via-zinc-800 to-black text-white py-4 shadow-2xl fixed w-full top-0 z-50 border-b border-red-600/30">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center">
@@ -59,275 +47,33 @@
                     </div>
                 </div>
                 
-                <!-- MENU PARA DISPOSITIVOS MOBILES -->
-                <!-- <button id="menuToggle" class="lg:hidden text-white text-2xl">
+                <button id="menuToggle" class="lg:hidden text-white text-2xl">
                     <i class="fas fa-bars"></i>
-                </button> -->
-                
-                 <!-- Mobile trigger -->
-                <button id="mobile-menu-btn" class="lg:hidden text-gray-700 focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
                 </button>
                 
                 <div id="menu" class="hidden lg:flex items-center space-x-6">
                     <a href="index.html#inicio" class="hover:text-red-500 transition font-medium">Inicio</a>
-                     <a href="index.html#productos" class="hover:text-red-500 transition font-medium">Productos</a>
-
-                     <!-- Dropdown Productos CON SCROLL
-                    <div class="dropdown relative">
-                    <button class="nav-link  hover:text-red-600 font-medium flex items-center transition">
-                        Productos <i class="fas fa-chevron-down ml-2 text-xs"></i>
-                    </button>
-                    <!-- MEGAMENU CON SCROLL 
-                    <div class="dropdown-content absolute left-0 mt-3  rounded-2xl shadow-2xl border p-6 w-[550px] grid grid-cols-3 gap-6 z-50 max-h-[500px] overflow-y-auto"
-                    style="background-color: rgb(220 38 38 / 57%);">
-                        <!-- Columna 1: Líneas 
-                        <div>
-                        <div class="text-xs font-bold text-white-600 uppercase mb-3 flex items-center">
-                            <i class="fa-jelly fa-regular fa-clipboard mr-2"></i> Líneas
-                        </div>
-                        <ul class="space-y-1"> 
-                            <li>
-                                <a class="block px-3 py-2 rounded-lg hover:bg-red-50 hover:text-red-600 transition text-sm"
-                                    href="">
-                                <i class="fas fa-angle-right mr-2 text-xs"></i>linea 1
-                                </a>
-                            </li>
-                            <li>
-                                <a class="block px-3 py-2 rounded-lg hover:bg-red-50 hover:text-red-600 transition text-sm"
-                                    href="">
-                                <i class="fas fa-angle-right mr-2 text-xs"></i>linea 2
-                                </a>
-                            </li>
-                            <li>
-                                <a class="block px-3 py-2 rounded-lg hover:bg-red-50 hover:text-red-600 transition text-sm"
-                                    href="">
-                                <i class="fas fa-angle-right mr-2 text-xs"></i>linea 3
-                                </a>
-                            </li>  
-                        </ul>
-                        </div>
-
-                        <!-- Columna 2: Categorías 
-                        <div>
-                            <div class="text-xs font-bold text-white-600 uppercase mb-3 flex items-center">
-                                <i class="fas fa-layer-group mr-2"></i> Categorías
-                            </div>                   
-                            <ul class="space-y-1">               
-                                <li>
-                                <a class="block px-3 py-2 rounded-lg hover:bg-red-50 hover:text-red-600 transition font-medium text-sm"
-                                    href="">
-                                <i class="fas fa-angle-right mr-2 text-xs"></i>Categoria 1                                    
-                                </a>   
-                                <!-- SUB CATEGORIAS  
-                                    <ul class="mt-1 ml-3 border-l-2 border-red-200 pl-3 space-y-1">                                    
-                                        <li>
-                                        <a class="block px-2 py-1 rounded hover:bg-red-50 hover:text-red-600 transition text-xs"
-                                            href="">
-                                             <i class="fas fa-angle-right mr-2 text-xs"></i>Sub categoria 1  
-                                            
-                                        </a>
-                                        </li>
-                                    
-                                    </ul>                               
-                                </li>                            
-                            </ul> 
-                        </div>
-
-                        <!-- Columna 3: Accesos rápidos 
-                        <div class="bg-gradient-to-br from-red-50 to-lime-50 rounded-xl p-4">
-                        <div class="text-xs font-bold text-red-600 uppercase mb-3">
-                            🌟 Destacados
-                        </div>
-                        <div class="space-y-2">
-                            <a href="" class="block p-3 bg-white rounded-lg hover:shadow-md transition">
-                            <div class="font-bold text-sm text-gray-800">⭐ Premium</div>
-                            <div class="text-xs text-gray-600">Pesca del día</div>
-                            </a>
-                            <!-- <a href="productos.php?tipo=gourmet" class="block p-3 bg-white rounded-lg hover:shadow-md transition">
-                            <div class="font-bold text-sm text-gray-800">👑 Gourmet</div>
-                            <div class="text-xs text-gray-600">Mariscos vivos</div>
-                            </a>
-                            <a href="productos.php?tipo=fresco" class="block p-3 bg-white rounded-lg hover:shadow-md transition">
-                            <div class="font-bold text-sm text-gray-800">❄️ Frescos</div>
-                            <div class="text-xs text-gray-600">Disponible 365 días</div>
-                            </a> 
-                        </div>
-                        <a href="producto.php" class="block mt-3 text-center text-xs text-red-600 hover:text-red-700 font-semibold">
-                            Ver todos los productos →
-                        </a>
-                        </div>
-                    </div>
-                    </div> -->
-
+                    <a href="index.html#productos" class="hover:text-red-500 transition font-medium">Productos</a>
                     <a href="index.html#servicios" class="hover:text-red-500 transition font-medium">Servicios</a>
                     <a href="index.html#sucursales" class="hover:text-red-500 transition font-medium">Sucursales</a>
-                    <!-- <a href="contacto.html" class="hover:text-red-500 transition font-medium">Contacto</a> -->
-                    <a href="index.html#cotizacion" class="btn-red px-6 py-2 text-sm">
+                    <a href="index.html#cotizacion" class="btn-red px-6 py-2 text-sm rounded-full">
                         <i class="fas fa-calculator mr-2"></i>Cotizar
                     </a>
                 </div>
             </div>
             
-
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden lg:hidden bg-white border-t max-h-[80vh] overflow-y-auto">
-                <div class="px-4 py-3 space-y-3">
-                <a href="index.html#inicio" class="block text-gray-700 hover:text-red-600 font-medium py-2">
-                    <i class="fas fa-home mr-2"></i>Inicio
-                </a>
-
-                <!-- Mobile Productos -->
-                <div>
-                    <button data-target="#mb-prod" class="w-full text-left text-gray-700 hover:text-red-600 font-medium flex justify-between items-center py-2">
-                    <span><i class="fas fa-book mr-2"></i>Productos</span>
-                    <i class="fas fa-chevron-down text-xs"></i>
-                    </button>
-                    <div id="mb-prod" class="hidden pl-4 mt-2 space-y-2 max-h-60 overflow-y-auto">
-                    
-                        <div class="text-xs uppercase text-gray-400 font-bold mt-2">Líneas</div>
-                        
-                        <a href="" class="block text-gray-600 hover:text-red-600 text-sm py-1">
-                            <i class="fas fa-angle-right mr-1 text-xs"></i>
-                        </a>
-                        
-                        <div class="text-xs uppercase text-gray-400 font-bold mt-3">Categorías</div>
-                        
-                        <a href="" class="block text-gray-600 hover:text-red-600 text-sm py-1">
-                           
-                        </a>
-                        
-                           
-                            <a href="" class="block text-gray-500 hover:text-red-600 text-xs pl-3 py-1">
-                                • 
-                            </a>                         
-                       
-                    
-                    <div class="border-t pt-2 mt-2">
-                        <a href="" class="block text-orange-600 hover:text-orange-700 text-sm py-1 font-semibold">
-                        ⭐ Premium
-                        </a>
-                        <!-- <a href="" class="block text-yellow-600 hover:text-yellow-700 text-sm py-1 font-semibold">
-                        👑 Gourmet
-                        </a> -->
-                        <!-- <a href="" class="block text-red-600 hover:text-red-700 text-sm py-1 font-semibold">
-                        ❄️ Frescos
-                        </a> -->
-                    </div>
-                    </div>
-                </div>
-
-                <!-- <a href="nosotros.php" class="block text-gray-700 hover:text-red-600 font-medium py-2">
-                    <i class="fas fa-users mr-2"></i>Nosotros
-                </a> -->
-                <a href="index.html#servicios" class="block text-gray-700 hover:text-red-600 font-medium py-2">
-                    <i class="fas fa-truck mr-2"></i>Servicios
-                </a>
-                <!-- <a href="index.php#gourmet" class="block text-gray-700 hover:text-red-600 font-medium py-2">
-                    <i class="fas fa-crown mr-2"></i>Gourmet
-                </a>
-                <a href="contacto.php" class="block text-gray-700 hover:text-red-600 font-medium py-2">
-                    <i class="fas fa-envelope mr-2"></i>Contacto
-                </a> -->
-                
-                <a href="" class="block btn-red text-white text-center px-6 py-3 rounded-full font-bold mt-4">
-                    <i class="fas fa-phone mr-2"></i>Cotizar Ahora
-                </a>
-                </div>
+            <div id="mobileMenu" class="hidden lg:hidden mt-4 space-y-3 pb-4">
+                <a href="index.html#inicio" class="block hover:text-red-500 transition">Inicio</a>
+                <a href="index.html#productos" class="block hover:text-red-500 transition">Productos</a>
+                <a href="index.html#servicios" class="block hover:text-red-500 transition">Servicios</a>
+                <a href="index.html#sucursales" class="block hover:text-red-500 transition">Sucursales</a>
+                <a href="index.html#cotizacion" class="block btn-red px-6 py-2 rounded-full text-center">Cotizar</a>
             </div>
-
         </div>
-
-
-
     </nav>
 
-    <script>
-// Toggle mobile menu
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-if (mobileMenuBtn) {
-  mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-}
-
-// Acordeones móviles
-document.querySelectorAll('#mobile-menu button[data-target]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const el = document.querySelector(btn.getAttribute('data-target'));
-    if (el) el.classList.toggle('hidden');
-  });
-});
-
-// Dropdown hover (desktop)
-document.querySelectorAll('.dropdown').forEach(d => {
-  d.addEventListener('mouseenter', () => d.classList.add('open'));
-  d.addEventListener('mouseleave', () => d.classList.remove('open'));
-});
-
-// Cerrar menú móvil al hacer clic en un enlace
-document.querySelectorAll('#mobile-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    if (!link.hasAttribute('data-target')) {
-      mobileMenu.classList.add('hidden');
-    }
-  });
-});
-</script>
-<style>
-.nav-link { position: relative; padding: 8px 0; }
-.nav-link::after {
-    content: ''; position: absolute; width: 0; height: 3px; bottom: -2px; left: 0;
-    background: linear-gradient(90deg, #a31616ff, #cc1616ff); transition: width 0.3s ease;
-}
-.nav-link:hover::after { width: 100%; }
-
-.dropdown .dropdown-content { 
-    opacity:0; visibility:hidden; transform: translateY(8px); transition:.2s; 
-}
-.dropdown.open .dropdown-content { 
-    opacity:1; visibility:visible; transform: translateY(0); 
-}
-
-/* Scroll personalizado para el megamenu */
-.dropdown-content::-webkit-scrollbar {
-    width: 8px;
-}
-.dropdown-content::-webkit-scrollbar-track {
-    background: #fd000081;
-    border-radius: 10px;
-}
-.dropdown-content::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #a31616ff, #cc1616ff);
-    border-radius: 10px;
-}
-.dropdown-content::-webkit-scrollbar-thumb:hover {
-    background: red;
-}
-
-/* Scroll personalizado para menú móvil */
-#mobile-menu::-webkit-scrollbar {
-    width: 6px;
-}
-#mobile-menu::-webkit-scrollbar-track {
-    background: #ac1d1dc4;
-}
-#mobile-menu::-webkit-scrollbar-thumb {
-    background: #a31616ff;
-    border-radius: 3px;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-.pulse-btn {
-    animation: pulse 2s infinite;
-}
-</style>
-
-    <!-- Breadcrumb -->
+    <!-- Breadcrumb Dinámico -->
     <section class="pt-32 pb-6 bg-white">
         <div class="container mx-auto px-4">
             <div class="flex items-center space-x-2 text-sm text-gray-600">
@@ -335,12 +81,14 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
                 <i class="fas fa-chevron-right text-xs"></i>
                 <a href="index.html#productos" class="hover:text-red-600">Productos</a>
                 <i class="fas fa-chevron-right text-xs"></i>
-                <span class="text-red-600 font-semibold">Filtro de Aceite Cummins</span>
+                <span id="categoria-breadcrumb" class="hover:text-red-600 cursor-pointer">...</span>
+                <i class="fas fa-chevron-right text-xs"></i>
+                <span id="nombre-breadcrumb" class="text-red-600 font-semibold">Cargando...</span>
             </div>
         </div>
     </section>
 
-    <!-- Detalle del Producto -->
+    <!-- Detalle del Producto - TODO DINÁMICO -->
     <section class="py-8 bg-white">
         <div class="container mx-auto px-4">
             <div class="grid lg:grid-cols-2 gap-12">
@@ -349,24 +97,24 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
                 <div class="space-y-4">
                     <!-- Imagen Principal -->
                     <div class="relative bg-gray-100 rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-200">
-                        <img id="mainImage" 
-                             src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800" 
-                             alt="Filtro de Aceite Cummins" 
+                        <img id="producto-imagen" 
+                             src="https://via.placeholder.com/800x500?text=Cargando..." 
+                             alt="Producto" 
                              class="w-full h-[500px] object-cover">
                         
-                        <!-- Badges -->
+                        <!-- Badges Dinámicos -->
                         <div class="absolute top-6 right-6 space-y-2">
-                            <div class="badge-premium text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                            <div id="badge-premium" class="badge-premium text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
                                 <i class="fas fa-star mr-2"></i>PREMIUM
                             </div>
-                            <div class="badge-stock text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                                <i class="fas fa-check-circle mr-2"></i>DISPONIBLE
+                            <div id="badge-stock" class="badge-stock text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                                <i class="fas fa-sync fa-spin mr-2"></i>Cargando...
                             </div>
                         </div>
                         
                         <div class="absolute top-6 left-6">
-                            <div class="bg-black/70 text-white px-4 py-2 rounded-full text-sm font-bold backdrop-blur-sm">
-                                Cummins
+                            <div id="badge-marca" class="bg-black/70 text-white px-4 py-2 rounded-full text-sm font-bold backdrop-blur-sm">
+                                ...
                             </div>
                         </div>
                     </div>
@@ -386,7 +134,7 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
                             
                             <div class="text-center p-3 bg-white rounded-xl">
                                 <i class="fas fa-award text-3xl text-amber-600 mb-2"></i>
-                                <p class="text-sm font-semibold text-gray-900">Original Cummins</p>
+                                <p class="text-sm font-semibold text-gray-900">Original</p>
                             </div>
                             
                             <div class="text-center p-3 bg-white rounded-xl">
@@ -402,32 +150,32 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
                     </div>
                 </div>
 
-                <!-- Columna Derecha - Información -->
+                <!-- Columna Derecha - Información Dinámica -->
                 <div class="space-y-6">
                     
-                    <!-- Tags -->
+                    <!-- Tags Dinámicos -->
                     <div class="flex items-center gap-3 flex-wrap">
-                        <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-bold">
-                            Productos Especiales
+                        <span id="tag-categoria" class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-bold">
+                            Cargando...
                         </span>
-                        <span class="badge-stock text-white px-3 py-1 rounded-full text-xs font-bold">
-                            <i class="fas fa-check mr-1"></i>DISPONIBLE
+                        <span id="tag-stock" class="badge-stock text-white px-3 py-1 rounded-full text-xs font-bold">
+                            <i class="fas fa-sync fa-spin mr-1"></i>...
                         </span>
                     </div>
                     
-                    <!-- Título -->
-                    <h1 class="text-4xl lg:text-5xl font-display font-black text-gray-900">
-                        Filtro de Aceite Cummins
+                    <!-- Título Dinámico -->
+                    <h1 id="producto-nombre" class="text-4xl lg:text-5xl font-display font-black text-gray-900">
+                        Cargando producto...
                     </h1>
                     
-                    <!-- Precio -->
+                    <!-- Precio Dinámico -->
                     <div class="bg-gradient-to-r from-amber-50 to-yellow-50 rounded-2xl p-6 border border-amber-200">
                         <p class="text-sm text-gray-600 mb-2 font-semibold">Precio disponible a cotización</p>
-                        <p class="text-3xl font-black text-red-600">$450.00 MXN</p>
+                        <p id="producto-precio" class="text-3xl font-black text-red-600">$0.00 MXN</p>
                         <p class="text-xs text-gray-500 mt-2">Contáctanos para obtener el mejor precio</p>
                     </div>
                     
-                    <!-- Características -->
+                    <!-- Características Dinámicas -->
                     <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg">
                         <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
                             <i class="fas fa-info-circle text-red-600 mr-2"></i>
@@ -437,18 +185,18 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
                         <div class="space-y-4">
                             <div class="flex justify-between items-center border-b border-gray-100 pb-3">
                                 <span class="text-gray-600 font-medium">Categoría:</span>
-                                <span class="font-bold text-gray-900">Motor</span>
+                                <span id="info-categoria" class="font-bold text-gray-900">...</span>
                             </div>
                             
                             <div class="flex justify-between items-center border-b border-gray-100 pb-3">
                                 <span class="text-gray-600 font-medium">Marca:</span>
-                                <span class="font-bold text-gray-900">Cummins</span>
+                                <span id="info-marca" class="font-bold text-gray-900">...</span>
                             </div>
                             
                             <div class="flex justify-between items-center border-b border-gray-100 pb-3">
                                 <span class="text-gray-600 font-medium">Disponibilidad:</span>
-                                <span class="font-bold text-green-600">
-                                    <i class="fas fa-check-circle mr-1"></i>365 Días al año
+                                <span id="info-disponibilidad" class="font-bold text-gray-600">
+                                    <i class="fas fa-sync fa-spin mr-1"></i>Verificando...
                                 </span>
                             </div>
                             
@@ -461,18 +209,15 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
                         </div>
                     </div>
                     
-                    <!-- Descripción -->
+                    <!-- Descripción Dinámica -->
                     <div class="bg-gray-50 rounded-2xl p-6">
                         <h3 class="text-xl font-bold text-gray-900 mb-4">Descripción</h3>
-                        <p class="text-gray-700 leading-relaxed">
-                            Filtro de aceite original para motores Cummins ISX/ISM. Diseñado con tecnología de filtración avanzada que garantiza la máxima protección del motor. Compatible con sistemas de lubricación de alta presión. Cumple con todas las especificaciones del fabricante y ofrece un rendimiento superior en condiciones extremas de trabajo.
+                        <p id="producto-descripcion" class="text-gray-700 leading-relaxed">
+                            Cargando descripción del producto...
                         </p>
                         
-                        <div class="mt-4 space-y-2">
-                            <p class="text-gray-700"><i class="fas fa-check text-green-600 mr-2"></i>Compatible con ISX y ISM</p>
-                            <p class="text-gray-700"><i class="fas fa-check text-green-600 mr-2"></i>Filtración de alta eficiencia</p>
-                            <p class="text-gray-700"><i class="fas fa-check text-green-600 mr-2"></i>Resistente a altas temperaturas</p>
-                            <p class="text-gray-700"><i class="fas fa-check text-green-600 mr-2"></i>Garantía de fábrica incluida</p>
+                        <div id="producto-features" class="mt-4 space-y-2">
+                            <!-- Se llenarán dinámicamente las características -->
                         </div>
                     </div>
                     
@@ -506,13 +251,16 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
                         </div>
                     </div>
                     
-                    <!-- Botones de Acción -->
+                    <!-- Botones de Acción Dinámicos -->
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button onclick="agregarACotizacion()" class="flex-1 btn-red px-8 py-4 rounded-full text-lg font-bold">
+                        <button id="btn-cotizar" 
+                                onclick="agregarACotizacionDetalle()" 
+                                class="flex-1 btn-red px-8 py-4 rounded-full text-lg font-bold">
                             <i class="fas fa-cart-plus mr-2"></i>Agregar a Cotización
                         </button>
                         
-                        <a href="https://wa.me/528711234567?text=Hola, me interesa el Filtro de Aceite Cummins" 
+                        <a id="btn-whatsapp" 
+                           href="#"
                            target="_blank"
                            class="flex-1 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-bold text-center transition-all">
                             <i class="fab fa-whatsapp mr-2"></i>Consultar por WhatsApp
@@ -534,7 +282,7 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
         </div>
     </section>
 
-    <!-- Productos Relacionados -->
+    <!-- Productos Relacionados Dinámicos -->
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -544,97 +292,22 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
                 <p class="text-gray-600">Otros productos que podrían interesarte</p>
             </div>
             
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Producto Relacionado 1 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all border border-gray-200">
-                    <div class="relative h-48 bg-gray-100">
-                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400" 
-                             alt="Bomba de Agua" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3 bg-green-600 text-white px-2 py-1 rounded-full text-xs font-bold">
-                            Disponible
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-xs text-red-600 font-bold mb-1">MOTOR</p>
-                        <h3 class="font-bold text-gray-900 mb-2">Bomba de Agua Detroit</h3>
-                        <p class="text-red-600 font-black text-lg mb-3">$3,500.00</p>
-                        <a href="#" class="btn-red w-full py-2 rounded-full text-sm text-center block">
-                            Ver Detalles
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Producto Relacionado 2 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all border border-gray-200">
-                    <div class="relative h-48 bg-gray-100">
-                        <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=400" 
-                             alt="Kit de Empaques" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3 bg-green-600 text-white px-2 py-1 rounded-full text-xs font-bold">
-                            Disponible
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-xs text-red-600 font-bold mb-1">MOTOR</p>
-                        <h3 class="font-bold text-gray-900 mb-2">Kit de Empaques Motor</h3>
-                        <p class="text-red-600 font-black text-lg mb-3">$2,800.00</p>
-                        <a href="#" class="btn-red w-full py-2 rounded-full text-sm text-center block">
-                            Ver Detalles
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Producto Relacionado 3 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all border border-gray-200">
-                    <div class="relative h-48 bg-gray-100">
-                        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=400" 
-                             alt="Turbo Cargador" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3 bg-green-600 text-white px-2 py-1 rounded-full text-xs font-bold">
-                            Disponible
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-xs text-red-600 font-bold mb-1">MOTOR</p>
-                        <h3 class="font-bold text-gray-900 mb-2">Turbo Cargador Garrett</h3>
-                        <p class="text-red-600 font-black text-lg mb-3">$15,000.00</p>
-                        <a href="#" class="btn-red w-full py-2 rounded-full text-sm text-center block">
-                            Ver Detalles
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Producto Relacionado 4 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all border border-gray-200">
-                    <div class="relative h-48 bg-gray-100">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400" 
-                             alt="Aceite de Motor" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3 bg-green-600 text-white px-2 py-1 rounded-full text-xs font-bold">
-                            Disponible
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-xs text-red-600 font-bold mb-1">MOTOR</p>
-                        <h3 class="font-bold text-gray-900 mb-2">Aceite Sintético 15W-40</h3>
-                        <p class="text-red-600 font-black text-lg mb-3">$850.00</p>
-                        <a href="#" class="btn-red w-full py-2 rounded-full text-sm text-center block">
-                            Ver Detalles
-                        </a>
-                    </div>
+            <div id="productos-relacionados" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Se llenarán dinámicamente -->
+                <div class="col-span-full text-center py-12">
+                    <i class="fas fa-sync fa-spin text-4xl text-gray-400 mb-4"></i>
+                    <p class="text-gray-600">Cargando productos relacionados...</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <!-- Footer -->
+    <!-- Footer (Igual que index.html) -->
     <footer class="bg-gradient-to-br from-neutral-900 via-zinc-900 to-black text-white py-16">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-3 gap-12 mb-12">
                 <div>
-                    <img src="BACKEND/assets/images/logo_sodilasa.png" alt="SODILASA" class="h-20 w-20 mb-4">
+                    <img src="assets/images/logo-sodilasa.png" alt="SODILASA" class="h-20 w-20 mb-4">
                     <h3 class="text-2xl font-display font-bold mb-2">SODILASA</h3>
                     <p class="text-gray-400">Soluciones Diésel Laguna</p>
                     <p class="text-gray-400 text-sm mt-4">Refaccionaria especializada en camiones diésel con más de 20 años de experiencia.</p>
@@ -676,160 +349,10 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
         <i class="fab fa-whatsapp text-3xl text-white"></i>
     </a>
 
-    <script src="BACKEND/assets/js/productos.js"></script>
+    <!-- Scripts -->
+    <script src="BACKEND/assets/js/data.js"></script>
+    <script src="BACKEND/assets/js/productos"></script>
+    <script src="BACKEND/assets/js/producto-detalle.js"></script>
 
-    <script>
-        // Obtener ID del producto de la URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const productoId = parseInt(urlParams.get('id')) || 1;
-        
-        // Buscar producto
-        const producto = productos.find(p => p.id === productoId) || productos[0];
-        
-        // Cargar datos del producto dinámicamente
-        document.addEventListener('DOMContentLoaded', function() {
-            // Actualizar título de página
-            document.title = `${producto.nombre} - SODILASA`;
-            
-            // Actualizar breadcrumb
-            document.querySelector('.text-red-600.font-semibold').textContent = producto.nombre;
-            
-            // Actualizar imagen principal
-            document.getElementById('mainImage').src = producto.imagen;
-            document.getElementById('mainImage').alt = producto.nombre;
-            
-            // Actualizar badges
-            const stockBadge = document.querySelector('.badge-stock');
-            const stockText = producto.stock ? 
-                '<i class="fas fa-check-circle mr-2"></i>DISPONIBLE' : 
-                '<i class="fas fa-times-circle mr-2"></i>AGOTADO';
-            stockBadge.innerHTML = stockText;
-            stockBadge.className = producto.stock ? 
-                'badge-stock text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg' :
-                'bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg';
-            
-            // Actualizar marca
-            document.querySelector('.bg-black\\/70').textContent = producto.marca;
-            
-            // Actualizar título del producto
-            document.querySelector('h1.text-4xl').textContent = producto.nombre;
-            
-            // Actualizar precio
-            document.querySelector('.text-3xl.font-black.text-red-600').textContent = 
-                `$${producto.precio.toLocaleString('es-MX')} MXN`;
-            
-            // Actualizar características
-            const caracteristicas = document.querySelectorAll('.flex.justify-between.items-center');
-            caracteristicas[0].querySelector('.font-bold.text-gray-900').textContent = getCategoriaLabel(producto.categoria);
-            caracteristicas[1].querySelector('.font-bold.text-gray-900').textContent = producto.marca;
-            
-            // Actualizar estado de stock
-            if (producto.stock) {
-                caracteristicas[2].querySelector('.font-bold').innerHTML = 
-                    '<i class="fas fa-check-circle mr-1"></i>365 Días al año';
-                caracteristicas[2].querySelector('.font-bold').className = 'font-bold text-green-600';
-            } else {
-                caracteristicas[2].querySelector('.font-bold').innerHTML = 
-                    '<i class="fas fa-times-circle mr-1"></i>Temporalmente agotado';
-                caracteristicas[2].querySelector('.font-bold').className = 'font-bold text-red-600';
-            }
-            
-            // Actualizar descripción
-            document.querySelector('.bg-gray-50 .text-gray-700.leading-relaxed').textContent = 
-                producto.descripcion;
-            
-            // Actualizar tag de disponibilidad
-            const stockTag = document.querySelectorAll('.badge-stock')[1];
-            if (stockTag) {
-                stockTag.innerHTML = producto.stock ? 
-                    '<i class="fas fa-check mr-1"></i>DISPONIBLE' : 
-                    '<i class="fas fa-times mr-1"></i>AGOTADO';
-                stockTag.className = producto.stock ?
-                    'badge-stock text-white px-3 py-1 rounded-full text-xs font-bold' :
-                    'bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold';
-            }
-            
-            // Actualizar botón de WhatsApp
-            const whatsappBtn = document.querySelector('a[href*="wa.me"]');
-            whatsappBtn.href = `https://wa.me/528711234567?text=Hola, me interesa el ${encodeURIComponent(producto.nombre)} - ID: ${producto.id}`;
-            
-            // Deshabilitar botón de cotización si no hay stock
-            const btnCotizar = document.querySelector('button[onclick="agregarACotizacion()"]');
-            if (!producto.stock) {
-                btnCotizar.disabled = true;
-                btnCotizar.className = 'flex-1 bg-gray-400 cursor-not-allowed px-8 py-4 rounded-full text-lg font-bold text-white';
-                btnCotizar.innerHTML = '<i class="fas fa-times mr-2"></i>No Disponible';
-            }
-            
-            // Cargar productos relacionados
-            cargarProductosRelacionados();
-        });
-        
-        function cargarProductosRelacionados() {
-            cosole.log(1);
-            const relacionados = productos
-                .filter(p => p.categoria === producto.categoria && p.id !== producto.id)
-                .slice(0, 4);
-            
-            const contenedor = document.querySelector('.grid.sm\\:grid-cols-2.lg\\:grid-cols-4');
-            
-            if (relacionados.length === 0) {
-                contenedor.innerHTML = '<p class="col-span-4 text-center text-gray-600">No hay productos relacionados disponibles</p>';
-                return;
-            }
-            
-            contenedor.innerHTML = relacionados.map(p => `
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all border border-gray-200">
-                    <div class="relative h-48 bg-gray-100">
-                        <img src="${p.imagen}" 
-                             alt="${p.nombre}" 
-                             class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3 ${p.stock ? 'bg-green-600' : 'bg-red-600'} text-white px-2 py-1 rounded-full text-xs font-bold">
-                            ${p.stock ? 'Disponible' : 'Agotado'}
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-xs text-red-600 font-bold mb-1">${getCategoriaLabel(p.categoria).toUpperCase()}</p>
-                        <h3 class="font-bold text-gray-900 mb-2 line-clamp-2">${p.nombre}</h3>
-                        <p class="text-red-600 font-black text-lg mb-3">$${p.precio.toLocaleString('es-MX')}</p>
-                        <a href="producto_detalle.html?id=${p.id}" class="btn-red w-full py-2 rounded-full text-sm text-center block">
-                            Ver Detalles
-                        </a>
-                    </div>
-                </div>
-            `).join('');
-        }
-        
-        function agregarACotizacion() {
-            if (!producto.stock) {
-                alert('Lo sentimos, este producto no está disponible en este momento.');
-                return;
-            }
-            
-            // Agregar a cotización usando la función del productos.js
-            window.opener?.agregarACotizacion?.(producto.id);
-            
-            // Mostrar confirmación
-            const notif = document.createElement('div');
-            notif.className = 'fixed top-24 right-6 bg-green-600 text-white px-6 py-4 rounded-lg shadow-2xl z-50';
-            notif.innerHTML = `
-                <div class="flex items-center gap-3">
-                    <i class="fas fa-check-circle text-2xl"></i>
-                    <div>
-                        <p class="font-bold">¡Producto agregado!</p>
-                        <p class="text-sm">Continúa comprando o ve a cotización</p>
-                    </div>
-                </div>
-            `;
-            document.body.appendChild(notif);
-            
-            setTimeout(() => {
-                notif.style.opacity = '0';
-                notif.style.transform = 'translateX(400px)';
-                notif.style.transition = 'all 0.3s ease';
-                setTimeout(() => notif.remove(), 300);
-            }, 3000);
-        }
-    </script>
 </body>
 </html>
