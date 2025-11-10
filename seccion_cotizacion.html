@@ -1,0 +1,90 @@
+    <!-- Formulario de Cotización -->
+<section id="cotizacion" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-12">
+            <div class="inline-block badge-red px-6 py-2 rounded-full text-sm font-bold mb-4">
+                <i class="fas fa-calculator mr-2"></i>COTIZACIÓN
+            </div>
+            <h2 class="text-4xl lg:text-5xl font-display font-black text-gray-900 mb-4">
+                Solicita tu <span class="text-red-600">Cotización</span>
+            </h2>
+        </div>
+        
+        <div class="grid lg:grid-cols-2 gap-8">
+            <!-- SECCIÓN IZQUIERDA: LISTA DE PRODUCTOS -->
+            <div class="bg-white rounded-3xl p-8 shadow-2xl border border-gray-200">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-2xl font-bold text-gray-900">
+                        <i class="fas fa-shopping-cart text-red-600 mr-2"></i>
+                        Productos en Cotización
+                    </h3>
+                    <span id="contador-items" class="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">0</span>
+                </div>
+                
+                <!-- Contenedor de la lista de productos -->
+                <div id="listaCotizacion" class="max-h-[500px] overflow-y-auto">
+                    <div class="text-center py-8 text-gray-500">
+                        <i class="fas fa-shopping-cart text-4xl mb-3 opacity-50"></i>
+                        <p>No hay productos en tu cotización</p>
+                        <p class="text-sm">Agrega productos desde el catálogo</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECCIÓN DERECHA: FORMULARIO -->
+            <div class="bg-white rounded-3xl p-8 shadow-2xl border border-gray-200">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                    <i class="fas fa-user text-red-600 mr-2"></i>
+                    Datos de Contacto
+                </h3>
+                
+                <!-- Mensaje de éxito (oculto por defecto) -->
+                <div id="mensajeExito" class="hidden mb-6 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    <strong>¡Cotización enviada con éxito!</strong> Nos pondremos en contacto contigo pronto.
+                </div>
+                
+                <!-- Mensaje de error (oculto por defecto) -->
+                <div id="mensajeError" class="hidden mb-6 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg">
+                    <i class="fas fa-exclamation-circle mr-2"></i>
+                    <strong>Error al enviar.</strong> Por favor, intenta de nuevo o contáctanos por WhatsApp.
+                </div>
+                
+                <form id="cotizacionForm" class="space-y-6">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Nombre Completo *</label>
+                        <input type="text" name="nombre" id="nombre" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Teléfono *</label>
+                        <input type="tel" name="telefono" id="telefono" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Correo Electrónico *</label>
+                        <input type="email" name="email" id="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Sucursal de Preferencia</label>
+                        <select name="sucursal" id="sucursal" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                            <option>Gómez Palacio</option>
+                            <option>Piedras Negras</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Refacciones Adicionales</label>
+                        <textarea name="refacciones" id="refacciones" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="¿Necesitas otras refacciones no listadas? Descríbelas aquí..."></textarea>
+                        <p class="text-xs text-gray-500 mt-1">Opcional: Solo si necesitas productos adicionales</p>
+                    </div>
+                    
+                    <button type="submit" id="btnEnviar" class="btn-red w-full py-4 rounded-full text-lg font-bold transition-all">
+                        <i class="fab fa-whatsapp mr-2"></i>Enviar por WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -12,7 +12,6 @@
  * Orden de carga en HTML:
  * 1. <script src="assets/js/data.js"></script>
  * 2. <script src="assets/js/productos.js"></script>
- * 3. <script src="assets/js/main.js"></script>
  */
 
 // Verificar que los productos estén disponibles
@@ -430,6 +429,12 @@ function actualizarContadorCotizacion() {
             badge.remove();
         }
     }
+    
+    // Actualizar contador en la sección de cotización
+    const contadorItems = document.getElementById('contador-items');
+    if (contadorItems) {
+        contadorItems.textContent = totalItems;
+    }
 }
 
 function mostrarNotificacion(mensaje) {
@@ -467,9 +472,178 @@ function verCotizacion() {
 // Inicializar mostrando todos los productos
 document.addEventListener('DOMContentLoaded', function() {
     renderProductos(productos);
+    mostrarListaCotizacion(); // Inicializar la lista de cotización
+});
+
+// Función para mostrar/ocultar la lista de productos en cotización
+function mostrarListaCotizacion() {
+    const listaContainer = document.getElementById('listaCotizacion');
+    if (!listaContainer) return;
+    
+    if (cotizacion.length === 0) {
+        listaContainer.innerHTML = `
+            <div class="text-center py-8 text-gray-500">
+                <i class="fas fa-shopping-cart text-4xl mb-3 opacity-50"></i>
+                <p>No hay productos en tu cotización</p>
+                <p class="text-sm">Agrega productos desde el catálogo</p>
+            </div>
+        `;
+        return;
+    }
+    
+    const total = cotizacion.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+    
+    listaContainer.innerHTML = `
+        <div class="space-y-4">
+            ${cotizacion.map(item => `
+                <div class="flex items-center gap-4 bg-gray-50 p-4 rounded-lg">
+                    <img src="${item.imagen}" alt="${item.nombre}" class="w-20 h-20 object-cover rounded">
+                    <div class="flex-1">
+                        <h4 class="font-bold text-gray-900">${item.nombre}</h4>
+                        <p class="text-sm text-gray-600">${item.marca}</p>
+                        <div class="flex items-center gap-4 mt-2">
+                            <div class="flex items-center gap-2">
+                                <button onclick="cambiarCantidad(${item.id}, -1)" class="w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-minus text-xs"></i>
+                                </button>
+                                <span class="font-bold w-8 text-center">${item.cantidad}</span>
+                                <button onclick="cambiarCantidad(${item.id}, 1)" class="w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-plus text-xs"></i>
+                                </button>
+                            </div>
+                            <span class="font-bold text-red-600">$${(item.precio * item.cantidad).toLocaleString('es-MX')}</span>
+                        </div>
+                    </div>
+                    <button onclick="eliminarDeCotizacion(${item.id})" class="text-red-600 hover:text-red-800">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `).join('')}
+            
+            <div class="border-t pt-4 mt-4">
+                <div class="flex justify-between items-center text-xl font-bold">
+                    <span>Total Estimado:</span>
+                    <span class="text-red-600">$${total.toLocaleString('es-MX')}</span>
+                </div>
+                <p class="text-sm text-gray-500 mt-2">* El precio final puede variar según disponibilidad</p>
+            </div>
+        </div>
+    `;
+}
+
+// Función para cambiar cantidad de un producto
+function cambiarCantidad(productId, cambio) {
+    const item = cotizacion.find(i => i.id === productId);
+    if (!item) return;
+    
+    item.cantidad += cambio;
+    
+    if (item.cantidad <= 0) {
+        eliminarDeCotizacion(productId);
+    } else {
+        actualizarContadorCotizacion();
+        mostrarListaCotizacion();
+    }
+}
+
+// Función para eliminar un producto de la cotización
+function eliminarDeCotizacion(productId) {
+    cotizacion = cotizacion.filter(item => item.id !== productId);
+    actualizarContadorCotizacion();
+    mostrarListaCotizacion();
+    mostrarNotificacion('Producto eliminado de la cotización');
+}
+
+// Actualizar la función agregarACotizacion para actualizar la lista
+const agregarACotizacionOriginal = agregarACotizacion;
+agregarACotizacion = function(productId) {
+    agregarACotizacionOriginal(productId);
+    mostrarListaCotizacion();
+}
+
+document.getElementById('cotizacionForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Obtener los valores del formulario
+    const nombre = document.getElementById('nombre').value;
+    const telefono = document.getElementById('telefono').value;
+    const email = document.getElementById('email').value;
+    const sucursal = document.getElementById('sucursal').value;
+    const refaccionesAdicionales = document.getElementById('refacciones').value;
+    
+    // Cambiar el botón a estado "enviando"
+    const btnEnviar = document.getElementById('btnEnviar');
+    const textoOriginal = btnEnviar.innerHTML;
+    btnEnviar.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Enviando...';
+    btnEnviar.disabled = true;
+    
+    // Ocultar mensajes previos
+    document.getElementById('mensajeExito').classList.add('hidden');
+    document.getElementById('mensajeError').classList.add('hidden');
+    
+    // Construir la lista de productos en cotización
+    let productosTexto = '';
+    let total = 0;
+    
+    if (cotizacion.length > 0) {
+        productosTexto = '*PRODUCTOS EN COTIZACIÓN:*%0A%0A';
+        cotizacion.forEach((item, index) => {
+            const subtotal = item.precio * item.cantidad;
+            total += subtotal;
+            productosTexto += `${index + 1}. *${item.nombre}*%0A`;
+            productosTexto += `   Marca: ${item.marca}%0A`;
+            productosTexto += `   Cantidad: ${item.cantidad}%0A`;
+            productosTexto += `   Precio Unit: $${item.precio.toLocaleString('es-MX')}%0A`;
+            productosTexto += `   Subtotal: $${subtotal.toLocaleString('es-MX')}%0A%0A`;
+        });
+        productosTexto += `*TOTAL ESTIMADO: $${total.toLocaleString('es-MX')}*%0A%0A`;
+    }
+    
+    // Agregar refacciones adicionales si las hay
+    let refaccionesTexto = '';
+    if (refaccionesAdicionales.trim() !== '') {
+        refaccionesTexto = `*REFACCIONES ADICIONALES:*%0A${refaccionesAdicionales}%0A%0A`;
+    }
+    
+    // OPCIÓN 2: Abrir WhatsApp con el mensaje (más simple y efectivo)
+    const numeroWhatsApp = '528712196060'; // CAMBIA ESTE NÚMERO
+    const mensaje = `*🔧 NUEVA COTIZACIÓN - SODILASA*%0A%0A` +
+                   `*DATOS DEL CLIENTE:*%0A` +
+                   `👤 Nombre: ${nombre}%0A` +
+                   `📱 Teléfono: ${telefono}%0A` +
+                   `📧 Email: ${email}%0A` +
+                   `🏢 Sucursal: ${sucursal}%0A%0A` +
+                   `━━━━━━━━━━━━━━━━%0A%0A` +
+                   productosTexto +
+                   refaccionesTexto +
+                   `━━━━━━━━━━━━━━━━%0A` +
+                   `_Gracias por contactar a SODILASA_`;
+    
+    window.open(`https://wa.me/${numeroWhatsApp}?text=${mensaje}`, '_blank');
+    
+    // Mostrar mensaje de éxito y limpiar cotización
+    setTimeout(() => {
+        document.getElementById('mensajeExito').classList.remove('hidden');
+        document.getElementById('cotizacionForm').reset();
+        btnEnviar.innerHTML = textoOriginal;
+        btnEnviar.disabled = false;
+        
+        // Limpiar cotización después de enviar
+        cotizacion = [];
+        actualizarContadorCotizacion();
+        mostrarListaCotizacion();
+        
+        // Ocultar mensaje después de 5 segundos
+        setTimeout(() => {
+            document.getElementById('mensajeExito').classList.add('hidden');
+        }, 5000);
+    }, 500);
 });
 
 // Exportar funciones globales
 window.filterCategory = filterCategory;
 window.agregarACotizacion = agregarACotizacion;
+window.cambiarCantidad = cambiarCantidad;
+window.eliminarDeCotizacion = eliminarDeCotizacion;
+window.mostrarListaCotizacion = mostrarListaCotizacion;
 //window.verCotizacion = verCotizacion;
