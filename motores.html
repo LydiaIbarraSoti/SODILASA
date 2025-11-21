@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motores | SODILASA</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2e0ad6e3d.js" crossorigin="anonymous"></script>
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #ff3b3f, #ff6f61);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-b from-black to-gray-900 text-white">
+
+  <!-- Header -->
+  <header class="text-center py-16" data-aos="fade-down">
+    <h1 class="text-5xl md:text-6xl font-black mb-4">
+      Categoría: <span class="gradient-text">Motores</span>
+    </h1>
+    <p class="text-xl text-gray-400 mb-8">Explora los artículos disponibles en esta categoría</p>
+    <button onclick="window.history.back()" 
+            class="bg-gray-700 hover:bg-gray-600 px-5 py-2 rounded-full transition transform hover:scale-105 duration-300">
+      ← Regresar
+    </button>
+  </header>
+
+  <!-- Grid de productos -->
+  <section class="container mx-auto px-6 pb-20">
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <!-- Producto 1 -->
+      <div class="rounded-2xl overflow-hidden shadow-xl bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl" 
+           data-aos="fade-up" data-aos-delay="0">
+        <img src="https://images.unsplash.com/photo-1517142089942-ba376ce32a2e?w=600" alt="Motor A" 
+             class="w-full h-60 object-cover transition duration-500 transform hover:scale-105">
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-2">Motor A</h3>
+          <p class="text-gray-300 mb-4">Motor de alta eficiencia para autos ligeros.</p>
+          <button class="bg-red-600 text-white px-5 py-2 rounded-full hover:bg-red-700 transition transform hover:scale-105">
+            Detalles
+          </button>
+        </div>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="rounded-2xl overflow-hidden shadow-xl bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl" 
+           data-aos="fade-up" data-aos-delay="150">
+        <img src="https://images.unsplash.com/photo-1585042793448-121c1c3fc4b1?w=600" alt="Motor B" 
+             class="w-full h-60 object-cover transition duration-500 transform hover:scale-105">
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-2">Motor B</h3>
+          <p class="text-gray-300 mb-4">Motor industrial de alto rendimiento.</p>
+          <button class="bg-red-600 text-white px-5 py-2 rounded-full hover:bg-red-700 transition transform hover:scale-105">
+            Detalles
+          </button>
+        </div>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="rounded-2xl overflow-hidden shadow-xl bg-gray-800 transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl" 
+           data-aos="fade-up" data-aos-delay="300">
+        <img src="https://images.unsplash.com/photo-1585042811677-5c8dc4d44acb?w=600" alt="Motor C" 
+             class="w-full h-60 object-cover transition duration-500 transform hover:scale-105">
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-2">Motor C</h3>
+          <p class="text-gray-300 mb-4">Motor compacto con sistema de enfriamiento avanzado.</p>
+          <button class="bg-red-600 text-white px-5 py-2 rounded-full hover:bg-red-700 transition transform hover:scale-105">
+            Detalles
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Inicializar AOS -->
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 120,
+    });
+  </script>
+
+</body>
+</html>
