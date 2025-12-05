@@ -3,613 +3,1543 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SODILASA - Refaccionaria especializada en camiones diésel. Venta de refacciones, taller mecánico y rescate 24/7 en Gómez Palacio y Piedras Negras.">
-    <meta name="keywords" content="refacciones, camiones diesel, taller mecánico, rescate carretera, Gómez Palacio, Piedras Negras">
-    <meta name="author" content="SODILASA">
+    <title>SODILASA - Soluciones Diésel Laguna</title>
     
-    <title>SODILASA - Soluciones Diésel Laguna | Refacciones y Taller Mecánico</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="BACKEND/assets/images/logo_sodilasa.png">    
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-text {
-            background: linear-gradient(135deg, #c24242 0%, #000000cc 100%);
-            
-            -webkit-text-fill-color: transparent;
-        }
-        @import "tailwindcss";
-    </style>
     
-    <!-- Estilos Personalizados -->
-    <link rel="stylesheet" href="BACKEND/assets/css/styles.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Slider Styles */
+        .hero-slider {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+        }
+        
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.8), rgba(0, 0, 0, 0.6));
+        }
+        
+        /* Parallax Effect */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Pulse Animation */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Card Hover Effect */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(220, 38, 38, 0.3);
+        }
+        
+        /* Button Shine Effect */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-shine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-shine:hover::before {
+            left: 100%;
+        }
+        
+        /* Navbar Scroll Effect */
+        .navbar-scrolled {
+            background: rgba(0, 0, 0, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Category Card */
+        .category-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .category-card img {
+            transition: transform 0.6s ease;
+        }
+        
+        .category-card:hover img {
+            transform: scale(1.15);
+        }
+        
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 2rem;
+            transform: translateY(50%);
+            transition: transform 0.4s ease;
+        }
+        
+        .category-card:hover .category-overlay {
+            transform: translateY(0);
+        }
+        
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .marquee {
+            animation: marquee 30s linear infinite;
+        }
+        
+        .marquee:hover {
+            animation-play-state: paused;
+        }
+        
+        /* Glowing Effect */
+        .glow {
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+        }
+        
+        .glow:hover {
+            box-shadow: 0 0 40px rgba(220, 38, 38, 0.8);
+        }
+        
+        /* Loading Animation */
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .spin {
+            animation: spin 1s linear infinite;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-black text-white">
 
-   <!-- Navbar Premium -->
-    <nav class="bg-gradient-to-r from-neutral-900 via-zinc-800 to-black text-white py-4 shadow-2xl fixed w-full top-0 z-50 border-b border-red-600/30">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
         <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-4">
-                    <img src="BACKEND/assets/images/logo_sodilasa.png" alt="SODILASA Logo" class="h-16 w-16 object-contain">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-3">
+                    <img src="BACKEND/assets/images/logo_sodilasa.png" alt="SODILASA" class="h-12 w-12">
                     <div>
-                        <h1 class="text-2xl font-display font-black text-white">SODILASA</h1>
-                        <p class="text-xs text-gray-400">Soluciones Diésel Laguna</p>
+                        <h1 class="text-2xl font-black text-white">SODILASA</h1>
+                        <p class="text-xs text-gray-300">Soluciones Diésel Laguna</p>
                     </div>
                 </div>
                 
-                <!-- MENU PARA DISPOSITIVOS MOBILES -->
-                <!-- <button id="menuToggle" class="lg:hidden text-white text-2xl">
-                    <i class="fas fa-bars"></i>
-                </button> -->
-                
-                 <!-- Mobile trigger -->
-                <button id="mobile-menu-btn" class="lg:hidden text-gray-700 focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-                
-                <div id="menu" class="hidden lg:flex items-center space-x-6">
-                    <a href="#inicio" class="hover:text-red-500 transition font-medium">Inicio</a>
-                    <a href="#productos" class="hover:text-red-500 transition font-medium">Productos</a> 
-
-                     
-
-                    <a href="#servicios" class="hover:text-red-500 transition font-medium">Servicios</a>
-                    <a href="#sucursales" class="hover:text-red-500 transition font-medium">Sucursales</a>
-                    <!-- <a href="contacto.html" class="hover:text-red-500 transition font-medium">Contacto</a> -->
-                    <a href="#cotizacion" class="btn-red px-6 py-2 text-sm">
-                        <i class="fas fa-calculator mr-2"></i>Cotizar
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="sodilasa_animated.html" class="text-white hover:text-red-500 transition font-semibold">Inicio</a>
+                     <a href="seccion_nosotros.html" class="text-white hover:text-red-500 transition font-semibold">Nosotros</a>
+                    <a href="sodilasa_animated.html#productos" class="text-white hover:text-red-500 transition font-semibold">Productos</a>
+                    <a href="sodilasa_animated.html#servicios" class="text-white hover:text-red-500 transition font-semibold">Servicios</a>
+                    <a href="sodilasa_animated.html#sucursales" class="text-white hover:text-red-500 transition font-semibold">Sucursales</a>
+                    <a href="sodilasa_animated.html#contacto" class="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition btn-shine">
+                        Cotizar
                     </a>
                 </div>
-            </div>
-            
-
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden lg:hidden bg-white border-t max-h-[80vh] overflow-y-auto">
-                <div class="px-4 py-3 space-y-3">
-                <a href="#inicio" class="block text-gray-700 hover:text-red-600 font-medium py-2">
-                    <i class="fas fa-home mr-2"></i>Inicio
-                </a>                
-
-                 <a href="#productos" class="block text-gray-700 hover:text-red-600 font-medium py-2">
-                    <i class="fa-jelly fa-regular fa-clipboard mr-2"></i>Productos
-                </a> 
-                <a href="#servicios" class="block text-gray-700 hover:text-red-600 font-medium py-2">
-                    <i class="fas fa-truck mr-2"></i>Servicios
-                </a>
-                <!-- <a href="index.php#gourmet" class="block text-gray-700 hover:text-red-600 font-medium py-2">
-                    <i class="fas fa-crown mr-2"></i>Gourmet
-                </a>
-                <a href="contacto.php" class="block text-gray-700 hover:text-red-600 font-medium py-2">
-                    <i class="fas fa-envelope mr-2"></i>Contacto
-                </a> -->
                 
-                <a href="#cotizacion" class="block btn-red text-white text-center px-6 py-3 rounded-full font-bold mt-4">
-                    <i class="fas fa-phone mr-2"></i>Cotizar Ahora
-                </a>
-                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-
         </div>
-
-
-
     </nav>
 
-    <script>
-// Toggle mobile menu
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-if (mobileMenuBtn) {
-  mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-}
-
-// Acordeones móviles
-document.querySelectorAll('#mobile-menu button[data-target]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const el = document.querySelector(btn.getAttribute('data-target'));
-    if (el) el.classList.toggle('hidden');
-  });
-});
-
-// Dropdown hover (desktop)
-document.querySelectorAll('.dropdown').forEach(d => {
-  d.addEventListener('mouseenter', () => d.classList.add('open'));
-  d.addEventListener('mouseleave', () => d.classList.remove('open'));
-});
-
-// Cerrar menú móvil al hacer clic en un enlace
-document.querySelectorAll('#mobile-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    if (!link.hasAttribute('data-target')) {
-      mobileMenu.classList.add('hidden');
-    }
-  });
-});
-</script>
-
-<style>
-.nav-link { position: relative; padding: 8px 0; }
-.nav-link::after {
-    content: ''; position: absolute; width: 0; height: 3px; bottom: -2px; left: 0;
-    background: linear-gradient(90deg, #a31616ff, #cc1616ff); transition: width 0.3s ease;
-}
-.nav-link:hover::after { width: 100%; }
-
-.dropdown .dropdown-content { 
-    opacity:0; visibility:hidden; transform: translateY(8px); transition:.2s; 
-}
-.dropdown.open .dropdown-content { 
-    opacity:1; visibility:visible; transform: translateY(0); 
-}
-
-/* Scroll personalizado para el megamenu */
-.dropdown-content::-webkit-scrollbar {
-    width: 8px;
-}
-.dropdown-content::-webkit-scrollbar-track {
-    background: #fd000081;
-    border-radius: 10px;
-}
-.dropdown-content::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #a31616ff, #cc1616ff);
-    border-radius: 10px;
-}
-.dropdown-content::-webkit-scrollbar-thumb:hover {
-    background: red;
-}
-
-/* Scroll personalizado para menú móvil */
-#mobile-menu::-webkit-scrollbar {
-    width: 6px;
-}
-#mobile-menu::-webkit-scrollbar-track {
-    background: #ac1d1dc4;
-}
-#mobile-menu::-webkit-scrollbar-thumb {
-    background: #a31616ff;
-    border-radius: 3px;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-.pulse-btn {
-    animation: pulse 2s infinite;
-}
-</style>
-
-    <!-- Hero Section -->
-    <section id="inicio" class="relative bg-gradient-to-br from-neutral-900 via-zinc-800 to-black pt-32 pb-24 overflow-hidden">
-        <div class="absolute inset-0">
-            <div class="absolute top-20 left-10 w-96 h-96 bg-red-600/10 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-20 right-10 w-96 h-96 bg-red-800/10 rounded-full blur-3xl"></div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-40 hidden">
+        <div class="flex flex-col items-center justify-center h-full gap-8">
+            <a href="#inicio" class="text-white text-2xl hover:text-red-500 transition">Inicio</a>
+            <a href="#productos" class="text-white text-2xl hover:text-red-500 transition">Productos</a>
+            <a href="#servicios" class="text-white text-2xl hover:text-red-500 transition">Servicios</a>
+            <a href="#sucursales" class="text-white text-2xl hover:text-red-500 transition">Sucursales</a>
+            <a href="#contacto" class="bg-red-600 text-white px-8 py-3 rounded-full text-xl">Cotizar</a>
         </div>
-        
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6 text-center lg:text-left animate-on-scroll">
-                    <div class="badge-red px-4 py-2 rounded-full text-sm font-bold backdrop-blur-sm inline-block">
-                        <i class="fas fa-truck mr-2"></i>REFACCIONARIA PROFESIONAL
-                    </div>
-                    
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-black text-white leading-tight">
-                        Soluciones <span class="text-red-600">Diésel</span><br>
-                        para tu <span class="text-red-600">Camión</span>
-                    </h1>
-                    
-                    <p class="text-xl text-gray-300">
-                        Refacciones de calidad, taller mecánico especializado y servicio de rescate en carretera. 
-                        <span class="text-red-500 font-semibold">Más de 20 años de experiencia.</span>
-                    </p>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#productos" class="btn-red px-8 py-4 text-lg font-bold">
-                            Ver Productos
-                        </a>
-                        <a href="#cotizacion" class="btn-outline-red px-8 py-4 text-lg font-bold">
-                            Cotizar Ahora
-                        </a>
-                    </div>
-                    
-                    <!-- Stats -->
-                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
-                        <div class="text-center">
-                            <p class="text-3xl font-black text-red-500">20+</p>
-                            <p class="text-sm text-gray-400">Años</p>
-                        </div>
-                        <div class="text-center">
-                            <p class="text-3xl font-black text-red-500">24/7</p>
-                            <p class="text-sm text-gray-400">Rescates</p>
-                        </div>
-                        <div class="text-center">
-                            <p class="text-3xl font-black text-red-500">2</p>
-                            <p class="text-sm text-gray-400">Sucursales</p>
+    </div>
+
+    <!-- Hero Slider -->
+    <section id="inicio" class="hero-slider">
+        <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920');">
+            <div class="relative z-10 h-full flex items-center">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-3xl" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
+                            Refacciones<br>
+                            <span class="text-red-500">Diésel</span>
+                        </h2>
+                        <p class="text-xl md:text-2xl mb-8 text-gray-200">
+                            Más de 20 años equipando camiones con las mejores refacciones del mercado
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="#productos" class="bg-red-600 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-red-700 transition btn-shine glow">
+                                <i class="fas fa-shopping-cart mr-2"></i>Ver Productos
+                            </a>
+                            <a href="#contacto" class="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white/20 transition border-2 border-white">
+                                Contactar
+                            </a>
                         </div>
                     </div>
                 </div>
-                
-                <div class="hidden lg:block animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800" 
-                         alt="Camión Diésel" 
-                         class="rounded-3xl shadow-2xl border-4 border-red-600/20">
+            </div>
+        </div>
+        
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1920');">
+            <div class="relative z-10 h-full flex items-center">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-3xl" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
+                            Taller<br>
+                            <span class="text-red-500">Especializado</span>
+                        </h2>
+                        <p class="text-xl md:text-2xl mb-8 text-gray-200">
+                            Diagnóstico y reparación de camiones diésel con tecnología de punta
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="#servicios" class="bg-red-600 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-red-700 transition btn-shine glow">
+                                <i class="fas fa-wrench mr-2"></i>Nuestros Servicios
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=1920');">
+            <div class="relative z-10 h-full flex items-center">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-3xl" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
+                            Rescate<br>
+                            <span class="text-red-500">24/7</span>
+                        </h2>
+                        <p class="text-xl md:text-2xl mb-8 text-gray-200">
+                            Estamos disponibles cuando más nos necesitas, día y noche
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="tel:8711573537" class="bg-red-600 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-red-700 transition btn-shine glow pulse-animation">
+                                <i class="fas fa-phone mr-2"></i>Llamar Ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slider Controls -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 flex gap-4">
+            <button class="slider-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition" data-slide="0"></button>
+            <button class="slider-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition" data-slide="1"></button>
+            <button class="slider-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition" data-slide="2"></button>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-gradient-to-r from-red-600 to-red-800 py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div data-aos="zoom-in" data-aos-delay="0">
+                    <div class="text-5xl font-black mb-2" data-counter="20">0</div>
+                    <p class="text-xl">Años de Experiencia</p>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-5xl font-black mb-2" data-counter="5000">0</div>
+                    <p class="text-xl">Clientes Satisfechos</p>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-5xl font-black mb-2" data-counter="2">0</div>
+                    <p class="text-xl">Sucursales</p>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-5xl font-black mb-2">24/7</div>
+                    <p class="text-xl">Servicio de Rescate</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Productos Section -->
-    <section id="productos" class="py-20 bg-white">
+    <!-- Categories Section -->
+    <section id="productos" class="py-20 bg-gradient-to-b from-black to-gray-900">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <div class="badge-red px-6 py-2 rounded-full text-sm font-bold mb-4 inline-block">
-                    <i class="fas fa-box-open mr-2"></i>NUESTROS PRODUCTOS
-                </div>
-                <h2 class="text-4xl lg:text-5xl font-display font-black text-gray-900 mb-4">
-                    Refacciones de <span class="text-red-600">Calidad</span>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-5xl md:text-6xl font-black mb-4">
+                    Nuestros <span class="gradient-text">Productos</span>
                 </h2>
-                <div class="decorative-line w-24 mx-auto"></div>
+                <p class="text-xl text-gray-400">Elige la categoría que deseas consultar</p>
             </div>
             
-            <!-- Categorías -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                <button onclick="filterCategory('motor')" class="category-btn bg-white border-2 border-gray-200 hover:border-red-600 rounded-xl p-6 text-center transition-all card-hover">
-                    <i class="fas fa-engine text-4xl text-red-600 mb-4"></i>
-                    <h3 class="font-bold text-gray-900">Motor</h3>
-                </button>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Category 1 -->
+                <div class="category-card rounded-2xl overflow-hidden h-80" data-aos="fade-up" data-aos-delay="0">
+                    <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600" alt="Motor" class="w-full h-full object-cover">
+                    <div class="category-overlay">
+                        <h3 class="text-3xl font-black mb-2">Motores</h3>
+                        <p class="text-gray-300 mb-4">Repuestos y componentes</p>
+                        <button onclick="window.location.href='motores.html'" class="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition">
+                            Ver más <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
                 
-                <button onclick="filterCategory('transmision')" class="category-btn bg-white border-2 border-gray-200 hover:border-red-600 rounded-xl p-6 text-center transition-all card-hover">
-                    <i class="fas fa-gears text-4xl text-red-600 mb-4"></i>
-                    <h3 class="font-bold text-gray-900">Transmisión</h3>
-                </button>
+                <!-- Category 2 -->
+                <div class="category-card rounded-2xl overflow-hidden h-80" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1605732562742-3023a888e56e?w=600" alt="Transmisión" class="w-full h-full object-cover">
+                    <div class="category-overlay">
+                        <h3 class="text-3xl font-black mb-2">Transmisión</h3>
+                        <p class="text-gray-300 mb-4">Sistema completo</p>
+                        <button class="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition">
+                            Ver más <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
                 
-                <button onclick="filterCategory('suspension')" class="category-btn bg-white border-2 border-gray-200 hover:border-red-600 rounded-xl p-6 text-center transition-all card-hover">
-                    <i class="fas fa-car-side text-4xl text-red-600 mb-4"></i>
-                    <h3 class="font-bold text-gray-900">Suspensión</h3>
-                </button>
+                <!-- Category 3 -->
+                <div class="category-card rounded-2xl overflow-hidden h-80" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=600" alt="Suspensión" class="w-full h-full object-cover">
+                    <div class="category-overlay">
+                        <h3 class="text-3xl font-black mb-2">Suspensión</h3>
+                        <p class="text-gray-300 mb-4">Amortiguadores y más</p>
+                        <button class="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition">
+                            Ver más <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
                 
-                <button onclick="filterCategory('frenos')" class="category-btn bg-white border-2 border-gray-200 hover:border-red-600 rounded-xl p-6 text-center transition-all card-hover">
-                    <i class="fas fa-circle-stop text-4xl text-red-600 mb-4"></i>
-                    <h3 class="font-bold text-gray-900">Frenos</h3>
-                </button>
-            </div>
-            
-            <!-- Lista de productos -->
-            <div id="productList" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Los productos se generarán dinámicamente -->
+                <!-- Category 4 -->
+                <div class="category-card rounded-2xl overflow-hidden h-80" data-aos="fade-up" data-aos-delay="0">
+                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600" alt="Frenos" class="w-full h-full object-cover">
+                    <div class="category-overlay">
+                        <h3 class="text-3xl font-black mb-2">Sistema de Frenos</h3>
+                        <p class="text-gray-300 mb-4">Balatas, discos y más</p>
+                        <button class="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition">
+                            Ver más <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Category 5 -->
+                <div class="category-card rounded-2xl overflow-hidden h-80" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1530292325631-9c15bbe5a6f2?w=600" alt="Eléctrico" class="w-full h-full object-cover">
+                    <div class="category-overlay">
+                        <h3 class="text-3xl font-black mb-2">Sistema Eléctrico</h3>
+                        <p class="text-gray-300 mb-4">Baterías y componentes</p>
+                        <button class="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition">
+                            Ver más <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Category 6 -->
+                <div class="category-card rounded-2xl overflow-hidden h-80" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=600" alt="Llantas" class="w-full h-full object-cover">
+                    <div class="category-overlay">
+                        <h3 class="text-3xl font-black mb-2">Llantas</h3>
+                        <p class="text-gray-300 mb-4">Todas las medidas</p>
+                        <button class="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition">
+                            Ver más <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    
-     <!-- Servicios -->
-    <section id="servicios" class="py-20 bg-gray-50">
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 bg-white text-black">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-display font-black text-gray-900 mb-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-5xl md:text-6xl font-black mb-4">
                     Nuestros <span class="text-red-600">Servicios</span>
                 </h2>
             </div>
             
-            <div class="grid lg:grid-cols-3 gap-8">
-                <!-- Servicio 1 -->
-                <div class="bg-white rounded-3xl p-8 shadow-lg card-hover border border-gray-200">
-                    <div class="w-20 h-20 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-store text-4xl text-white"></i>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-gray-50 rounded-2xl p-8 text-center" data-aos="flip-left" data-aos-delay="0">
+                    <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6 float-animation">
+                        <i class="fas fa-tools text-4xl text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">Venta de Refacciones</h3>
-                    <p class="text-gray-600 text-center mb-6">
-                        Amplio catálogo de refacciones originales y aftermarket para camiones diésel de todas las marcas.
-                    </p>
-                    <ul class="space-y-2 text-gray-700">
-                        <li><i class="fas fa-check text-red-600 mr-2"></i>Motores y componentes</li>
-                        <li><i class="fas fa-check text-red-600 mr-2"></i>Sistema de transmisión</li>
-                        <li><i class="fas fa-check text-red-600 mr-2"></i>Suspensión y dirección</li>
-                        <li><i class="fas fa-check text-red-600 mr-2"></i>Sistema eléctrico</li>
-                    </ul>
-                </div>
-                
-                <!-- Servicio 2 -->
-                <div class="bg-white rounded-3xl p-8 shadow-lg card-hover border border-gray-200">
-                    <div class="w-20 h-20 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-wrench text-4xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">Taller Mecánico</h3>
-                    <p class="text-gray-600 text-center mb-6">
-                        Servicio especializado en mantenimiento y reparación de camiones diésel. Sucursal Gómez Palacio.
-                    </p>
-                    <ul class="space-y-2 text-gray-700">
-                        <li><i class="fas fa-check text-red-600 mr-2"></i>Diagnóstico computarizado</li>
-                        <li><i class="fas fa-check text-red-600 mr-2"></i>Reparación de motor</li>
+                    <h3 class="text-2xl font-bold mb-4">Taller Mecánico</h3>
+                    <p class="text-gray-600 mb-4">Diagnóstico y reparación especializada en motores diésel</p>
+                    <ul class="text-left text-gray-700 space-y-2">
                         <li><i class="fas fa-check text-red-600 mr-2"></i>Mantenimiento preventivo</li>
-                        <li><i class="fas fa-check text-red-600 mr-2"></i>Reparaciones eléctricas</li>
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Reparación de motores</li>
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Diagnóstico computarizado</li>
                     </ul>
                 </div>
                 
-                <!-- Servicio 3 -->
-                <div class="bg-white rounded-3xl p-8 shadow-lg card-hover border border-gray-200">
-                    <div class="w-20 h-20 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div class="card-hover bg-gray-50 rounded-2xl p-8 text-center" data-aos="flip-left" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6 float-animation" style="animation-delay: 0.5s;">
+                        <i class="fas fa-shopping-cart text-4xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Venta de Refacciones</h3>
+                    <p class="text-gray-600 mb-4">Amplio inventario de refacciones originales y genéricas</p>
+                    <ul class="text-left text-gray-700 space-y-2">
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Refacciones originales</li>
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Envíos a toda la república</li>
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Precios competitivos</li>
+                    </ul>
+                </div>
+                
+                <div class="card-hover bg-gray-50 rounded-2xl p-8 text-center" data-aos="flip-left" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6 float-animation" style="animation-delay: 1s;">
                         <i class="fas fa-truck-medical text-4xl text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">Rescate en Carretera</h3>
-                    <p class="text-gray-600 text-center mb-6">
-                        Servicio de grúa y rescate 24/7 para camiones varados en carretera. Respuesta inmediata.
-                    </p>
-                    <ul class="space-y-2 text-gray-700">
-                        <li><i class="fas fa-check text-red-600 mr-2"></i>Servicio 24/7</li>
-                        <li><i class="fas fa-check text-red-600 mr-2"></i>Grúas especializadas</li>
+                    <h3 class="text-2xl font-bold mb-4">Rescate 24/7</h3>
+                    <p class="text-gray-600 mb-4">Servicio de grúa y asistencia vial las 24 horas</p>
+                    <ul class="text-left text-gray-700 space-y-2">
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Servicio inmediato</li>
                         <li><i class="fas fa-check text-red-600 mr-2"></i>Cobertura regional</li>
-                        <li><i class="fas fa-check text-red-600 mr-2"></i>Respuesta rápida</li>
+                        <li><i class="fas fa-check text-red-600 mr-2"></i>Personal capacitado</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sucursales -->
-    <section id="sucursales" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl lg:text-5xl font-display font-black text-gray-900 mb-4">
-                Nuestras <span class="text-red-600">Sucursales</span>
-            </h2>
+    <!-- Brands Marquee -->
+    <!-- <section class="py-16 bg-black overflow-hidden">
+        <div class="mb-8 text-center" data-aos="fade-up">
+            <h3 class="text-3xl font-black text-white">Trabajamos con las <span class="text-red-600">Mejores Marcas</span></h3>
         </div>
+        <div class="flex gap-16 marquee">
+            <div class="flex gap-16 items-center">
+                <div class="bg-white rounded-xl p-8 w-48 h-32 flex items-center justify-center">
+                    <span class="text-2xl font-black text-gray-800">CUMMINS</span>
+                </div>
+                <div class="bg-white rounded-xl p-8 w-48 h-32 flex items-center justify-center">
+                    <span class="text-2xl font-black text-gray-800">DETROIT</span>
+                </div>
+                <div class="bg-white rounded-xl p-8 w-48 h-32 flex items-center justify-center">
+                    <span class="text-2xl font-black text-gray-800">CATERPILLAR</span>
+                </div>
+                <div class="bg-white rounded-xl p-8 w-48 h-32 flex items-center justify-center">
+                    <span class="text-2xl font-black text-gray-800">VOLVO</span>
+                </div>
+                <div class="bg-white rounded-xl p-8 w-48 h-32 flex items-center justify-center">
+                    <span class="text-2xl font-black text-gray-800">MACK</span>
+                </div>
+                <div class="bg-white rounded-xl p-8 w-48 h-32 flex items-center justify-center">
+                    <span class="text-2xl font-black text-gray-800">KENWORTH</span>
+                </div>
+            </div>
+            
+            <div class="flex gap-16 items-center">
+                <div class="bg-white rounded-xl p-8 w-48 h-32 flex items-center justify-center">
+                    <span class="text-2xl font-black text-gray-800">CUMMINS</span>
+                </div>
+                <div class="bg-white rounded-xl p-8 w-48 h-32 flex items-center justify-center">
+                    <span class="text-2xl font-black text-gray-800">DETROIT</span>
+                </div>
+                <div class="bg-white rounded-xl p-8 w-48 h-32 flex items-center justify-center">
+                    <span class="text-2xl font-black text-gray-800">CATERPILLAR</span>
+                </div>
+                <div class="bg-white rounded-xl p-8 w-48 h-32 flex items-center justify-center">
+                    <span class="text-2xl font-black text-gray-800">VOLVO</span>
+                </div>
+                <div class="bg-white rounded-xl p-8 w-48 h-32 flex items-center justify-center">
+                    <span class="text-2xl font-black text-gray-800">MACK</span>
+                </div>
+                <div class="bg-white rounded-xl p-8 w-48 h-32 flex items-center justify-center">
+                    <span class="text-2xl font-black text-gray-800">KENWORTH</span>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+<!-- Brands Marquee Interactivo con Drag & Swipe -->
+<section class="py-20 bg-gradient-to-b from-black via-neutral-900 to-black overflow-hidden relative">
+    <!-- Partículas de fondo -->
+    <div class="absolute inset-0 opacity-30">
+        <div class="absolute top-10 left-20 w-64 h-64 bg-red-600/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 right-20 w-64 h-64 bg-red-800/10 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="mb-12 text-center relative z-10 fade-in-up">
+        <div class="badge-red px-6 py-2 rounded-full text-sm font-bold mb-4 inline-block">
+            <i class="fas fa-handshake mr-2"></i>NUESTRAS MARCAS
+        </div>
+        <h3 class="text-4xl lg:text-5xl font-black text-white mb-2">
+            Trabajamos con las <span class="gradient-text-animated">Mejores Marcas</span>
+        </h3>
+        <p class="text-gray-400 mt-4">Refacciones originales de las marcas más confiables del mercado</p>
+    </div>
+    
+    <!-- Marquee Container con controles -->
+    <div class="marquee-container relative">
+        <!-- Gradient overlays para efecto fade -->
+        <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
         
-        <div class="grid lg:grid-cols-2 gap-8">
-            <!-- Sucursal Gómez Palacio -->
-            <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 shadow-xl border border-gray-200">
-                <div class="flex items-start gap-4 mb-6">
-                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-map-marker-alt text-2xl text-white"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Gómez Palacio</h3>
-                        <p class="text-red-600 font-semibold">Sucursal Principal - Taller y Refacciones</p>
+        <!-- Botones de navegación -->
+        <button id="prevBtn" class="nav-btn nav-btn-left" aria-label="Anterior">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button id="nextBtn" class="nav-btn nav-btn-right" aria-label="Siguiente">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <div class="marquee-wrapper" id="marqueeWrapper">
+            <div class="marquee-track" id="marqueeTrack">
+                <!-- Brand Card 1 - CUMMINS -->
+                <div class="brand-card">
+                    <div class="brand-inner">
+                        <div class="brand-logo">
+                            <i class="fas fa-engine text-5xl text-red-600"></i>
+                        </div>
+                        <h4 class="brand-name">CUMMINS</h4>
+                        <p class="brand-category">Motores Diésel</p>
+                        <div class="brand-badge">Original</div>
                     </div>
                 </div>
                 
-                <div class="space-y-4 text-gray-700 mb-6">
-                    <div class="flex items-start gap-3">
-                        <i class="fas fa-location-dot text-red-600 mt-1"></i>
-                        <p>Dirección: Carretera a Chihuahua km 6.5, Grupo Webb, 35027 Gómez Palacio, Dgo</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <i class="fas fa-phone text-red-600 mt-1"></i>
-                        <p>Tel: <a href="tel:+528711573537" class="hover:text-red-600">8711573537</a></p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <i class="fas fa-clock text-red-600 mt-1"></i>
-                        <p>Lun - Vie: 8:00 AM - 7:00 PM<br>Sáb: 8:00 AM - 3:00 PM</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <i class="fas fa-tools text-red-600 mt-1"></i>
-                        <p class="font-semibold">Servicios: Refacciones + Taller + Rescate 24/7</p>
+                <!-- Brand Card 2 - DETROIT -->
+                <div class="brand-card">
+                    <div class="brand-inner">
+                        <div class="brand-logo">
+                            <i class="fas fa-truck text-5xl text-red-600"></i>
+                        </div>
+                        <h4 class="brand-name">DETROIT</h4>
+                        <p class="brand-category">Sistema Diésel</p>
+                        <div class="brand-badge">Original</div>
                     </div>
                 </div>
-
-                <!-- Contenedor responsivo para iframe -->
-                <div class="relative w-full h-0 pb-[56.25%] rounded-2xl overflow-hidden mb-6">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8558.128506791532!2d-103.50418521056764!3d25.596614590474715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868fd78bd1774017%3A0x2b73f5fcdba3c919!2sSODILASA%20%7C%20Soluciones%20Di%C3%A9sel%20Laguna!5e0!3m2!1ses-419!2smx!4v1762622006535!5m2!1ses-419!2smx" 
-                        class="absolute top-0 left-0 w-full h-full"
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+                
+                <!-- Brand Card 3 - CATERPILLAR -->
+                <div class="brand-card">
+                    <div class="brand-inner">
+                        <div class="brand-logo">
+                            <i class="fas fa-hard-hat text-5xl text-red-600"></i>
+                        </div>
+                        <h4 class="brand-name">CATERPILLAR</h4>
+                        <p class="brand-category">Maquinaria Pesada</p>
+                        <div class="brand-badge">Premium</div>
+                    </div>
                 </div>
+                
+                <!-- Brand Card 4 - VOLVO -->
+                <div class="brand-card">
+                    <div class="brand-inner">
+                        <div class="brand-logo">
+                            <i class="fas fa-truck-front text-5xl text-red-600"></i>
+                        </div>
+                        <h4 class="brand-name">VOLVO</h4>
+                        <p class="brand-category">Camiones Premium</p>
+                        <div class="brand-badge">Premium</div>
+                    </div>
+                </div>
+                
+                <!-- Brand Card 5 - MACK -->
+                <div class="brand-card">
+                    <div class="brand-inner">
+                        <div class="brand-logo">
+                            <i class="fas fa-truck-monster text-5xl text-red-600"></i>
+                        </div>
+                        <h4 class="brand-name">MACK</h4>
+                        <p class="brand-category">Trabajo Pesado</p>
+                        <div class="brand-badge">Original</div>
+                    </div>
+                </div>
+                
+                <!-- Brand Card 6 - KENWORTH -->
+                <div class="brand-card">
+                    <div class="brand-inner">
+                        <div class="brand-logo">
+                            <i class="fas fa-shipping-fast text-5xl text-red-600"></i>
+                        </div>
+                        <h4 class="brand-name">KENWORTH</h4>
+                        <p class="brand-category">Transporte</p>
+                        <div class="brand-badge">Original</div>
+                    </div>
+                </div>
+                
+                <!-- Brand Card 7 - FREIGHTLINER -->
+                <div class="brand-card">
+                    <div class="brand-inner">
+                        <div class="brand-logo">
+                            <i class="fas fa-trailer text-5xl text-red-600"></i>
+                        </div>
+                        <h4 class="brand-name">FREIGHTLINER</h4>
+                        <p class="brand-category">Camiones</p>
+                        <div class="brand-badge">Premium</div>
+                    </div>
+                </div>
+                
+                <!-- Brand Card 8 - INTERNATIONAL -->
+                <div class="brand-card">
+                    <div class="brand-inner">
+                        <div class="brand-logo">
+                            <i class="fas fa-globe-americas text-5xl text-red-600"></i>
+                        </div>
+                        <h4 class="brand-name">INTERNATIONAL</h4>
+                        <p class="brand-category">Vehículos Comerciales</p>
+                        <div class="brand-badge">Original</div>
+                    </div>
+                </div>
+                
+                <!-- Brand Card 9 - PACCAR -->
+                <div class="brand-card">
+                    <div class="brand-inner">
+                        <div class="brand-logo">
+                            <i class="fas fa-cog text-5xl text-red-600"></i>
+                        </div>
+                        <h4 class="brand-name">PACCAR</h4>
+                        <p class="brand-category">Componentes</p>
+                        <div class="brand-badge">Original</div>
+                    </div>
+                </div>
+                
+                <!-- Brand Card 10 - EATON -->
+                <div class="brand-card">
+                    <div class="brand-inner">
+                        <div class="brand-logo">
+                            <i class="fas fa-gears text-5xl text-red-600"></i>
+                        </div>
+                        <h4 class="brand-name">EATON</h4>
+                        <p class="brand-category">Transmisiones</p>
+                        <div class="brand-badge">Premium</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Indicadores de posición -->
+        <div class="carousel-indicators" id="carouselIndicators"></div>
+    </div>
+    
+    <!-- Controles e instrucciones -->
+    <!-- <div class="text-center mt-8 relative z-10">
+        <div class="flex items-center justify-center gap-4 text-gray-400 text-sm flex-wrap">
+            <span><i class="fas fa-hand-pointer mr-2"></i>Click para pausar</span>
+            <span class="hidden md:inline"><i class="fas fa-grip-horizontal mr-2"></i>Arrastra para navegar</span>
+            <span class="md:hidden"><i class="fas fa-hand-sparkles mr-2"></i>Desliza para navegar</span>
+            <span><i class="fas fa-arrows-left-right mr-2"></i>Usa las flechas</span>
+        </div> -->
+        
+        <!-- Control de play/pause -->
+        <!-- <button id="playPauseBtn" class="mt-4 bg-white/10 hover:bg-white/20 text-white px-6 py-2 rounded-full transition">
+            <i class="fas fa-pause mr-2"></i>
+            <span id="playPauseText">Pausar</span>
+        </button>
+    </div> -->
+</section>
 
-                <a href="https://www.google.com/maps/place/SODILASA+%7C+Soluciones+Diésel+Laguna/@25.5966146,-103.5041852,15.75z/data=!4m12!1m5!3m4!2zMjXCsDMzJzM5LjIiTiAxMDPCsDI5JzU3LjgiVw!8m2!3d25.5609!4d-103.4994!3m5!1s0x868fd78bd1774017:0x2b73f5fcdba3c919!8m2!3d25.5994768!4d-103.5073005!16s%2Fg%2F11k9q7gj2m?entry=ttu&g_ep=EgoyMDI1MTEwNC4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-red w-full py-3 rounded-full font-bold block text-center">
-                    <i class="fas fa-map mr-2"></i>Ver en Mapa
+<style>
+/* ============================================
+   ESTILOS PARA CARRUSEL INTERACTIVO
+   ============================================ */
+
+.marquee-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 2rem 0;
+    cursor: grab;
+}
+
+.marquee-container:active {
+    cursor: grabbing;
+}
+
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.marquee-track {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+}
+
+.marquee-track.dragging {
+    transition: none;
+}
+
+.marquee-track.auto-scrolling {
+    animation: marquee-auto 40s linear infinite;
+}
+
+.marquee-track.paused {
+    animation-play-state: paused;
+}
+
+@keyframes marquee-auto {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-280px * 10 - 2rem * 10));
+    }
+}
+
+/* ============================================
+   BOTONES DE NAVEGACIÓN
+   ============================================ */
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    background: rgba(220, 38, 38, 0.9);
+    backdrop-filter: blur(10px);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.5);
+}
+
+.nav-btn:hover {
+    background: rgba(220, 38, 38, 1);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 30px rgba(220, 38, 38, 0.7);
+}
+
+.nav-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.nav-btn-left {
+    left: 1rem;
+}
+
+.nav-btn-right {
+    right: 1rem;
+}
+
+/* ============================================
+   INDICADORES DE CARRUSEL
+   ============================================ */
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.indicator-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator-dot.active {
+    background: #dc2626;
+    width: 30px;
+    border-radius: 5px;
+}
+
+.indicator-dot:hover {
+    background: rgba(220, 38, 38, 0.7);
+}
+
+/* ============================================
+   BRAND CARDS
+   ============================================ */
+
+.brand-card {
+    flex-shrink: 0;
+    width: 280px;
+    height: 220px;
+    perspective: 1000px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.brand-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(220, 38, 38, 0.1);
+    overflow: hidden;
+}
+
+.brand-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(220, 38, 38, 0.1),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+.brand-card:hover .brand-inner::before {
+    left: 100%;
+}
+
+.brand-card:hover .brand-inner {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 
+        0 20px 50px rgba(220, 38, 38, 0.3),
+        0 0 50px rgba(220, 38, 38, 0.2);
+    border-color: #dc2626;
+}
+
+.brand-logo {
+    margin-bottom: 1rem;
+    transition: all 0.4s ease;
+}
+
+.brand-card:hover .brand-logo {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.brand-card:hover .brand-logo i {
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.brand-name {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.brand-card:hover .brand-name {
+    color: #dc2626;
+}
+
+.brand-category {
+    font-size: 0.875rem;
+    color: #6b7280;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.brand-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #dc2626, #991b1b);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 2px 10px rgba(220, 38, 38, 0.3);
+}
+
+/* ============================================
+   EFECTOS ADICIONALES
+   ============================================ */
+
+.brand-card:hover .brand-inner {
+    animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+    0%, 100% {
+        box-shadow: 
+            0 20px 50px rgba(220, 38, 38, 0.3),
+            0 0 50px rgba(220, 38, 38, 0.2);
+    }
+    50% {
+        box-shadow: 
+            0 20px 60px rgba(220, 38, 38, 0.4),
+            0 0 70px rgba(220, 38, 38, 0.3);
+    }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .brand-card {
+        width: 240px;
+        height: 180px;
+    }
+    
+    .brand-inner {
+        padding: 1.5rem;
+    }
+    
+    .brand-logo i {
+        font-size: 2.5rem !important;
+    }
+    
+    .brand-name {
+        font-size: 1.25rem;
+    }
+    
+    .brand-category {
+        font-size: 0.75rem;
+    }
+    
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .nav-btn-left {
+        left: 0.5rem;
+    }
+    
+    .nav-btn-right {
+        right: 0.5rem;
+    }
+}
+
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track,
+    .brand-card:hover .brand-inner,
+    .nav-btn {
+        transition: none;
+        animation: none;
+    }
+}
+</style>
+
+<script>
+// ============================================
+// CARRUSEL INTERACTIVO CON DRAG & SWIPE
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.getElementById('marqueeTrack');
+    const wrapper = document.getElementById('marqueeWrapper');
+    const container = document.querySelector('.marquee-container');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const playPauseText = document.getElementById('playPauseText');
+    const indicatorsContainer = document.getElementById('carouselIndicators');
+    
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let animationID = 0;
+    let currentIndex = 0;
+    let isAutoScrolling = true;
+    
+    const cardWidth = 280;
+    const gap = 32; // 2rem
+    const slideWidth = cardWidth + gap;
+    const totalCards = track.children.length;
+    
+    // Crear indicadores
+    function createIndicators() {
+        const numIndicators = Math.ceil(totalCards / 3);
+        for (let i = 0; i < numIndicators; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('indicator-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i * 3));
+            indicatorsContainer.appendChild(dot);
+        }
+    }
+    
+   // createIndicators();
+    
+    // Actualizar indicadores
+    function updateIndicators() {
+        const dots = indicatorsContainer.querySelectorAll('.indicator-dot');
+        const activeIndex = Math.floor(Math.abs(currentTranslate) / (slideWidth * 3));
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === activeIndex);
+        });
+    }
+    
+    // Iniciar auto-scroll
+    function startAutoScroll() {
+        console.log("startAutoScroll");
+        track.classList.add('auto-scrolling');
+        isAutoScrolling = true;
+       // playPauseText.textContent = 'Pausar';
+        // playPauseBtn.querySelector('i').classList.remove('fa-play');
+        // playPauseBtn.querySelector('i').classList.add('fa-pause');
+    }
+    
+    // Pausar auto-scroll
+    function pauseAutoScroll() {
+        track.classList.add('paused');
+        isAutoScrolling = false;
+       // playPauseText.textContent = 'Reproducir';
+        // playPauseBtn.querySelector('i').classList.remove('fa-pause');
+        // playPauseBtn.querySelector('i').classList.add('fa-play');
+    }
+    
+    // Detener auto-scroll completamente
+    function stopAutoScroll() {
+        track.classList.remove('auto-scrolling', 'paused');
+        isAutoScrolling = false;
+    }
+    
+    // Toggle play/pause
+    // playPauseBtn.addEventListener('click', () => {
+    //     if (isAutoScrolling) {
+    //         pauseAutoScroll();
+    //     } else {
+    //         startAutoScroll();
+    //     }
+    // });
+    
+    // Navegación con botones
+    prevBtn.addEventListener('click', () => {
+        stopAutoScroll();
+        goToSlide(Math.max(currentIndex - 1, 0));
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        stopAutoScroll();
+        goToSlide(Math.min(currentIndex + 1, totalCards - 1));
+    });
+    
+    // Ir a slide específico
+    function goToSlide(index) {
+        currentIndex = index;
+        currentTranslate = -index * slideWidth;
+        prevTranslate = currentTranslate;
+        setSliderPosition();
+       // updateIndicators();
+    }
+    
+    // Mouse events
+    //container.addEventListener('mousedown', dragStart);
+    //container.addEventListener('mousemove', drag);
+    // container.addEventListener('mouseup', dragEnd);
+    // container.addEventListener('mouseleave', dragEnd);
+    
+    // Touch events
+    //container.addEventListener('touchstart', dragStart);
+    //container.addEventListener('touchmove', drag);
+    // container.addEventListener('touchend', dragEnd);
+    
+    // function dragStart(event) {
+    //     stopAutoScroll();
+    //     isDragging = true;
+    //     startPos = getPositionX(event);
+    //     animationID = requestAnimationFrame(animation);
+    //     track.classList.add('dragging');
+    //     container.style.cursor = 'grabbing';
+    // }
+    
+    // function drag(event) {
+    //     if (!isDragging) return;
+        
+    //     const currentPosition = getPositionX(event);
+    //     const diff = currentPosition - startPos;
+    //     currentTranslate = prevTranslate + diff;
+        
+    //     // Limitar el arrastre
+    //     const maxTranslate = 0;
+    //     const minTranslate = -(totalCards - 1) * slideWidth;
+    //     currentTranslate = Math.max(Math.min(currentTranslate, maxTranslate), minTranslate);
+    // }
+    
+    // function dragEnd() {
+    //     if (!isDragging) return;
+        
+    //     isDragging = false;
+    //     cancelAnimationFrame(animationID);
+    //     track.classList.remove('dragging');
+    //     container.style.cursor = 'grab';
+        
+    //     // Snap to nearest slide
+    //     const movedBy = currentTranslate - prevTranslate;
+        
+    //     if (movedBy < -50 && currentIndex < totalCards - 1) {
+    //         currentIndex++;
+    //     }
+        
+    //     if (movedBy > 50 && currentIndex > 0) {
+    //         currentIndex--;
+    //     }
+        
+    //     currentTranslate = -currentIndex * slideWidth;
+    //     prevTranslate = currentTranslate;
+        
+    //     setSliderPosition();
+    //     updateIndicators();
+    // }
+    
+    function getPositionX(event) {
+        return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+    }
+    
+    function animation() {
+        setSliderPosition();
+        if (isDragging) requestAnimationFrame(animation);
+    }
+    
+    function setSliderPosition() {
+        track.style.transform = `translateX(${currentTranslate}px)`;
+    }
+    
+    // Pausar en hover de las tarjetas
+    const brandCards = document.querySelectorAll('.brand-card');
+    
+    brandCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            if (isAutoScrolling) {
+                //pauseAutoScroll();
+            }
+        });
+        
+        // card.addEventListener('mouseleave', () => {
+        //     // No reanudar automáticamente, dejar que el usuario decida
+           
+        // });
+        
+        // Efecto de click
+        card.addEventListener('click', function() {
+            console.log("evento click");
+            const brandName = this.querySelector('.brand-name').textContent;
+            console.log(brandName);
+            
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 200);
+            
+            
+            if (typeof showToast === 'function') {
+                console.log("mostrar mensaje");
+                showToast(`Refacciones ${brandName} disponibles`, 'info');
+            }
+        });
+        
+        // Efecto tilt 3D
+        card.addEventListener('mousemove', function(e) {
+            if (isDragging) return;
+            
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            const inner = this.querySelector('.brand-inner');
+            inner.style.transform = `
+                perspective(1000px) 
+                rotateX(${rotateX}deg) 
+                rotateY(${rotateY}deg) 
+                translateY(-10px) 
+                scale(1.05)
+            `;
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            const inner = this.querySelector('.brand-inner');
+            inner.style.transform = '';
+        });
+    });
+    
+    // // Navegación con teclado
+    // document.addEventListener('keydown', (e) => {
+    //     if (e.key === 'ArrowLeft') {
+    //         stopAutoScroll();
+    //         goToSlide(Math.max(currentIndex - 1, 0));
+    //     } else if (e.key === 'ArrowRight') {
+    //         stopAutoScroll();
+    //         goToSlide(Math.min(currentIndex + 1, totalCards - 1));
+    //     } else if (e.key === ' ') {
+    //         e.preventDefault();
+    //         if (isAutoScrolling) {
+    //             pauseAutoScroll();
+    //         } else {
+    //             startAutoScroll();
+    //         }
+    //     }
+    // });
+    
+    // Iniciar con auto-scroll
+    startAutoScroll();
+    
+    // Responsive: ajustar en resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            goToSlide(0);
+        }, 250);
+    });
+    
+    console.log('✨ Carrusel interactivo con drag & swipe cargado');
+});
+</script>
+
+
+    <!-- Branches Section -->
+    <section id="sucursales" class="py-20 bg-gradient-to-b from-gray-900 to-black text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-5xl md:text-6xl font-black mb-4">
+                    Nuestras <span class="text-red-600">Sucursales</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Gómez Palacio -->
+                <div class="card-hover bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10" data-aos="fade-right">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-black">Gómez Palacio</h3>
+                            <p class="text-red-500">Sucursal Principal - Refacciones + Taller + Rescate 24/7</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3 text-gray-300 mb-6">
+                        <p><i class="fas fa-location-dot text-red-500 mr-3"></i>Carretera a Chihuahua km 6.5, Grupo Webb, 35027 Gómez Palacio, Dgo</p>
+                        <p><i class="fas fa-phone text-red-500 mr-3"></i>871 157 3537</p>
+                        <p><i class="fas fa-clock text-red-500 mr-3"></i>Lun-Vie: 8AM-7PM</p>
+                        <p><i class="fas fa-clock text-red-500 mr-3"></i>Sáb: 8:00 AM - 3:00 PM</p>
+                    </div>
+                    <div class="relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden mb-6">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8558.128506791532!2d-103.50418521056764!3d25.596614590474715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868fd78bd1774017%3A0x2b73f5fcdba3c919!2sSODILASA%20%7C%20Soluciones%20Di%C3%A9sel%20Laguna!5e0!3m2!1ses-419!2smx!4v1762622006535!5m2!1ses-419!2smx"
+                            class="absolute top-0 left-0 w-full h-full"
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <a href="https://www.google.com/maps/place/SODILASA+%7C+Soluciones+Diésel+Laguna/@25.5966146,-103.5041852,15.75z/data=!4m12!1m5!3m4!2zMjXCsDMzJzM5LjIiTiAxMDPCsDI5JzU3LjgiVw!8m2!3d25.5609!4d-103.4994!3m5!1s0x868fd78bd1774017:0x2b73f5fcdba3c919!8m2!3d25.5994768!4d-103.5073005!16s%2Fg%2F11k9q7gj2m?entry=ttu&g_ep=EgoyMDI1MTEwNC4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full block text-center font-bold hover:bg-red-700 transition btn-shine">
+                        <i class="fas fa-map mr-2"></i>Ver en Mapa
+                    </a>
+                </div>
+                
+                <!-- Piedras Negras -->
+                <div class="card-hover bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10" data-aos="fade-left">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-black">Piedras Negras</h3>
+                            <p class="text-red-500">Sucursal - Venta de Refacciones</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3 text-gray-300 mb-6">
+                        <p><i class="fas fa-location-dot text-red-500 mr-3"></i>Morelos 216, La Villita, Villa de Fuente, 26090 Piedras Negras, Coah.</p>
+                        <p><i class="fas fa-phone text-red-500 mr-3"></i>878 788 8546</p>
+                        <p><i class="fas fa-clock text-red-500 mr-3"></i>Lun-Vie: 8AM-6PM</p>
+                        <p><i class="fas fa-clock text-red-500 mr-3"></i>Sáb: 9:00 AM - 1:30 PM</p>
+                    </div>
+                    <div class="relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden mb-6">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4163.100936680584!2d-100.55063492506328!3d28.667602843551172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865f8b43b62677c9%3A0xc8343fcbfee3e699!2sSODILASA%20Piedras%20Negras!5e0!3m2!1ses-419!2smx!4v1762622313837!5m2!1ses-419!2smx"
+                            class="absolute top-0 left-0 w-full h-full"
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <a href="https://www.google.com/maps/place/SODILASA+%7C+Soluciones+Diésel+Laguna+Suc.+Piedras+Negras/@28.6865451,-100.5631655,13.79z/data=!4m12!1m5!3m4!2zMjXCsDMzJzM5LjIiTiAxMDPCsDI5JzU3LjgiVw!8m2!3d25.5608889!4d-103.4993889!3m5!1s0x865f8b43b62677c9:0xc8343fcbfee3e699!8m2!3d28.6683334!4d-100.5492341!16s%2Fg%2F11w2zszy8d?entry=ttu&g_ep=EgoyMDI1MTEwNC4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full block text-center font-bold hover:bg-red-700 transition btn-shine">
+                        <i class="fas fa-map mr-2"></i>Ver en Mapa
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section id="contacto" class="py-20 bg-gradient-to-r from-red-600 to-red-800">
+        <div class="container mx-auto px-4 text-center" data-aos="zoom-in">
+            <h2 class="text-5xl md:text-6xl font-black mb-6">¿Listo para comenzar?</h2>
+            <p class="text-2xl mb-8">Contáctanos y obtén la mejor asesoría para tu camión</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="tel:528711573537" class="bg-white text-red-600 px-8 py-4 rounded-full text-lg font-bold hover:bg-gray-100 transition btn-shine glow">
+                    <i class="fas fa-phone mr-2"></i>871 157 3537
+                </a>
+                <a href="https://wa.me/528711573537" class="bg-green-500 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-green-600 transition btn-shine glow">
+                    <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                </a>
+                <a href="mailto:ferbus_ld@hotmail.com" class="bg-black text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-gray-900 transition btn-shine">
+                    <i class="fas fa-envelope mr-2"></i>Email
                 </a>
             </div>
-            
-            <!-- Sucursal Piedras Negras -->
-            <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 shadow-xl border border-gray-200">
-                <div class="flex items-start gap-4 mb-6">
-                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-map-marker-alt text-2xl text-white"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Piedras Negras</h3>
-                        <p class="text-red-600 font-semibold">Sucursal - Venta de Refacciones</p>
-                    </div>
-                </div>
-                
-                <div class="space-y-4 text-gray-700 mb-6">
-                    <div class="flex items-start gap-3">
-                        <i class="fas fa-location-dot text-red-600 mt-1"></i>
-                        <p>Dirección: Morelos 216, La Villita, Villa de Fuente, 26090 Piedras Negras, Coah.</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <i class="fas fa-phone text-red-600 mt-1"></i>
-                        <p>Tel: <a href="tel:+528787888546" class="hover:text-red-600">8787888546</a></p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <i class="fas fa-clock text-red-600 mt-1"></i>
-                        <p>Lun - Vie: 8:00 AM - 6:00 PM<br>Sáb: 9:00 AM - 1:30 PM</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <i class="fas fa-store text-red-600 mt-1"></i>
-                        <p class="font-semibold">Servicios: Venta de Refacciones</p>
-                    </div>
-                </div>
+        </div>
+    </section>
 
-                <!-- Contenedor responsivo para iframe -->
-                <div class="relative w-full h-0 pb-[56.25%] rounded-2xl overflow-hidden mb-6">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4163.100936680584!2d-100.55063492506328!3d28.667602843551172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865f8b43b62677c9%3A0xc8343fcbfee3e699!2sSODILASA%20%7C%20Soluciones%20Di%C3%A9sel%20Laguna%20Suc.%20Piedras%20Negras!5e0!3m2!1ses-419!2smx!4v1762622313837!5m2!1ses-419!2smx" 
-                        class="absolute top-0 left-0 w-full h-full"
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>                    
+    <!-- Footer -->
+    <footer class="bg-black text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <img src="BACKEND/assets/images/logo_sodilasa.png" alt="SODILASA" class="h-20 w-20 mb-4">
+                    <h3 class="text-2xl font-black mb-2">SODILASA</h3>
+                    <p class="text-gray-400">Soluciones Diésel Laguna</p>
+                    <p class="text-gray-400 text-sm mt-4">Refaccionaria especializada en camiones diésel con más de 20 años de experiencia.</p>
+                </div>
                 
-                <a href="https://www.google.com/maps/place/SODILASA+%7C+Soluciones+Diésel+Laguna+Suc.+Piedras+Negras/@28.6865451,-100.5631655,13.79z/data=!4m12!1m5!3m4!2zMjXCsDMzJzM5LjIiTiAxMDPCsDI5JzU3LjgiVw!8m2!3d25.5608889!4d-103.4993889!3m5!1s0x865f8b43b62677c9:0xc8343fcbfee3e699!8m2!3d28.6683334!4d-100.5492341!16s%2Fg%2F11w2zszy8d?entry=ttu&g_ep=EgoyMDI1MTEwNC4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-red w-full py-3 rounded-full font-bold block text-center">
-                    <i class="fas fa-map mr-2"></i>Ver en Mapa
-                </a>
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-red-500">Contacto</h4>
+                    <div class="space-y-3 text-gray-400">
+                        <p><i class="fas fa-phone text-red-500 mr-2"></i>871 157 3537</p>
+                        <p><i class="fas fa-envelope text-red-500 mr-2"></i>ferbus_ld@hotmail.com</p>
+                        <p><i class="fas fa-clock text-red-500 mr-2"></i>Lun-Vie: 9AM-7PM</p>
+                        <p><i class="fas fa-clock text-red-500 mr-2"></i>Sábado: 9AM-2:30PM</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-red-500">Síguenos</h4>
+                    <div class="flex gap-4">
+                        <a href="https://www.facebook.com/profile.php?id=61571149637882" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition glow">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/sodilasa_mx" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition glow">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <!-- <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition glow">
+                            <i class="fab fa-whatsapp"></i>
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8">
+                <div class="flex flex-col items-center gap-4">
+                    <!-- <img src="BACKEND/assets/images/logo_sodilasa.png" alt="SODILASA" class="h-12 w-12 opacity-80"> -->
+                    <p class="text-center text-gray-500">&copy; 2025 SODILASA. Todos los derechos reservados.</p>
+                    <img src="BACKEND/assets/images/L.png" alt="SODILASA" class="h-12 w-12 opacity-80">
+                </div>
             </div>
         </div>
-    </div>
-</section>
-    
+    </footer>
 
-    <!-- Formulario de Cotización -->
-<section id="cotizacion" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4 max-w-6xl">
-        <div class="text-center mb-12">
-            <div class="inline-block badge-red px-6 py-2 rounded-full text-sm font-bold mb-4">
-                <i class="fas fa-calculator mr-2"></i>COTIZACIÓN
-            </div>
-            <h2 class="text-4xl lg:text-5xl font-display font-black text-gray-900 mb-4">
-                Solicita tu <span class="text-red-600">Cotización</span>
-            </h2>
-        </div>
-        
-        <div class="grid lg:grid-cols-2 gap-8">
-            <!-- SECCIÓN IZQUIERDA: LISTA DE PRODUCTOS -->
-            <div class="bg-white rounded-3xl p-8 shadow-2xl border border-gray-200">
-                <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-2xl font-bold text-gray-900">
-                        <i class="fas fa-shopping-cart text-red-600 mr-2"></i>
-                        Productos en Cotización
-                    </h3>
-                    <span id="contador-items" class="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">0</span>
-                </div>
-                
-                <!-- Contenedor de la lista de productos -->
-                <div id="listaCotizacion" class="max-h-[500px] overflow-y-auto">
-                    <div class="text-center py-8 text-gray-500">
-                        <i class="fas fa-shopping-cart text-4xl mb-3 opacity-50"></i>
-                        <p>No hay productos en tu cotización</p>
-                        <p class="text-sm">Agrega productos desde el catálogo</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- SECCIÓN DERECHA: FORMULARIO -->
-            <div class="bg-white rounded-3xl p-8 shadow-2xl border border-gray-200">
-                <h3 class="text-2xl font-bold text-gray-900 mb-6">
-                    <i class="fas fa-user text-red-600 mr-2"></i>
-                    Datos de Contacto
-                </h3>
-                
-                <!-- Mensaje de éxito (oculto por defecto) -->
-                <div id="mensajeExito" class="hidden mb-6 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg">
-                    <i class="fas fa-check-circle mr-2"></i>
-                    <strong>¡Cotización enviada con éxito!</strong> Nos pondremos en contacto contigo pronto.
-                </div>
-                
-                <!-- Mensaje de error (oculto por defecto) -->
-                <div id="mensajeError" class="hidden mb-6 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg">
-                    <i class="fas fa-exclamation-circle mr-2"></i>
-                    <strong>Error al enviar.</strong> Por favor, intenta de nuevo o contáctanos por WhatsApp.
-                </div>
-                
-                <form id="cotizacionForm" class="space-y-6">
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-2">Nombre Completo *</label>
-                        <input type="text" name="nombre" id="nombre" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-2">Teléfono *</label>
-                        <input type="tel" name="telefono" id="telefono" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-2">Correo Electrónico *</label>
-                        <input type="email" name="email" id="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-2">Sucursal de Preferencia</label>
-                        <select name="sucursal" id="sucursal" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
-                            <option>Gómez Palacio</option>
-                            <option>Piedras Negras</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-2">Refacciones Adicionales</label>
-                        <textarea name="refacciones" id="refacciones" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="¿Necesitas otras refacciones no listadas? Descríbelas aquí..."></textarea>
-                        <p class="text-xs text-gray-500 mt-1">Opcional: Solo si necesitas productos adicionales</p>
-                    </div>
-                    
-                    <button type="submit" id="btnEnviar" class="btn-red w-full py-4 rounded-full text-lg font-bold transition-all">
-                        <i class="fab fa-whatsapp mr-2"></i>Enviar por WhatsApp
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
-      <!-- Footer -->
-<footer class="bg-gradient-to-br from-neutral-900 via-zinc-900 to-black text-white py-16">
-    <div class="container mx-auto px-4">
-        <div class="grid md:grid-cols-3 gap-12 mb-12">
-            <div>
-                <img src="BACKEND/assets/images/logo_sodilasa.png" alt="SODILASA" class="h-20 w-20 mb-4">
-                <h3 class="text-2xl font-display font-bold mb-2">SODILASA</h3>
-                <p class="text-gray-400">Soluciones Diésel Laguna</p>
-                <p class="text-gray-400 text-sm mt-4">Refaccionaria especializada en camiones diésel con más de 20 años de experiencia.</p>
-            </div>
-            
-            <div>
-                <h4 class="text-xl font-bold mb-4 text-red-500">Contacto</h4>
-                <div class="space-y-3 text-gray-400">
-                    <p><i class="fas fa-phone text-red-500 mr-2"></i>871 157 3537</p>
-                    <p><i class="fas fa-envelope text-red-500 mr-2"></i>ferbus_ld@hotmail.com</p>
-                    <p><i class="fas fa-clock text-red-500 mr-2"></i>Lun-Vie: 9AM-7PM</p>
-                    <p><i class="fas fa-clock text-red-500 mr-2"></i>Sabado: 9AM-2:30PM</p>
-                </div>
-            </div>
-            
-            <div>
-                <h4 class="text-xl font-bold mb-4 text-red-500">Síguenos</h4>
-                <div class="flex gap-4">
-                    <a href="https://www.facebook.com/profile.php?id=61571149637882" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com/sodilasa_mx" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                   
-                </div>
-            </div>
-        </div>
-        
-        <div class="border-t border-white/10 pt-8">
-            <div class="flex flex-col items-center gap-4">                
-                <p class="text-center text-gray-500">&copy; 2025 SODILASA. Todos los derechos reservados.</p>
-                <img src="BACKEND/assets/images/L.png" alt="SODILASA" class="h-12 w-12 opacity-80">
-            </div>
-        </div>
-         
-    </div>
-</footer>
-    
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/528711573537" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-all z-50 hover:scale-110">
-        <i class="fab fa-whatsapp text-3xl text-white"></i>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/528711573537" class="fixed bottom-8 right-8 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-3xl shadow-2xl hover:bg-green-600 transition z-50 pulse-animation glow" style="box-shadow: 0 0 30px rgba(34, 197, 94, 0.6);">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Scripts -->
-    <script src="BACKEND/assets/js/data.js"></script>
-    <script src="BACKEND/assets/js/productos.js"></script>
-   
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: false,
+            offset: 100
+        });
+
+        // Hero Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('bg-white'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('bg-white');
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        // Auto advance slides
+        setInterval(nextSlide, 5000);
+        
+        // Manual controls
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Counter animation
+        const counters = document.querySelectorAll('[data-counter]');
+        const speed = 200;
+        
+        const observerOptions = {
+            threshold: 0.5
+        };
+        
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-counter');
+                    const increment = target / speed;
+                    
+                    const updateCount = () => {
+                        const count = +counter.innerText;
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + increment);
+                            setTimeout(updateCount, 10);
+                        } else {
+                            counter.innerText = target + '+';
+                        }
+                    };
+                    
+                    updateCount();
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+        
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
